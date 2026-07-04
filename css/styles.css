@@ -1,0 +1,61 @@
+/* Custom CSS for specialized effects & canvas stars */
+
+/* Custom Focus Outline for WCAG AAA compliance (visible on both light & dark sections) */
+*:focus-visible {
+  outline: 3px solid #3B4494;
+  outline-offset: 2px;
+}
+#hero-section *:focus-visible,
+#contact *:focus-visible {
+  outline: 3px solid #FBBF24;
+  outline-offset: 2px;
+}
+
+/* Little Prince Floating Star Animation */
+@keyframes float-star {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(15deg); }
+}
+.floating-star {
+  animation: float-star 4s ease-in-out infinite;
+}
+
+/* Star twinkling simulation background canvas, scoped to hero only */
+#space-canvas {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* Safe scroll margins for anchors */
+section, footer {
+  scroll-margin-top: 5rem;
+}
+
+/* Rainbow "lolcat" text cycling for the fox easter egg */
+@keyframes lolcat-cycle {
+  0%   { color: #ff6161; }
+  16%  { color: #ffb861; }
+  32%  { color: #f4e04d; }
+  48%  { color: #6fdc8c; }
+  64%  { color: #61c4ff; }
+  80%  { color: #b98bff; }
+  100% { color: #ff6161; }
+}
+.lolcat span {
+  display: inline-block;
+  animation-name: lolcat-cycle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Gentle sway for the fully bloomed rose easter egg */
+@keyframes rose-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.rose-sway {
+  display: inline-block;
+  transform-origin: bottom center;
+  animation: rose-sway 2.4s ease-in-out infinite;
+}
