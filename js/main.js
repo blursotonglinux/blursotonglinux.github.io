@@ -273,7 +273,7 @@
     for (var i = 0; i < bundle.valuesCards.length; i++) {
       var v = bundle.valuesCards[i];
       valuesHtml += '<div class="p-8 rounded-2xl bg-cream border border-squid-deep/20 shadow-sm hover:shadow-md transition-shadow">';
-      valuesHtml += '  <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-' + escapeHtml(v.color) + '/10 text-' + escapeHtml(v.color) + ' mb-6">';
+      valuesHtml += '  <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-' + escapeHtml(v.color) + ' text-cream mb-6">';
       valuesHtml += '    <i class="fa-solid ' + escapeHtml(v.icon) + ' text-2xl"></i>';
       valuesHtml += '  </div>';
       valuesHtml += '  <h3 class="text-xl font-bold font-mono mb-3 text-' + escapeHtml(v.color) + '">' + escapeHtml(v.title) + '</h3>';
@@ -287,7 +287,7 @@
     for (var j = 0; j < bundle.partnerships.length; j++) {
       var p = bundle.partnerships[j];
       partnerHtml += '<div class="p-6 md:p-8 rounded-2xl bg-lavender border border-squid-deep/20 flex flex-col sm:flex-row gap-6 items-start hover:scale-[1.01] transition-transform duration-200 shadow-sm">';
-      partnerHtml += '  <div class="p-4 rounded-xl bg-squid-deep/10 text-squid-deep text-2xl shrink-0"><i class="fa-solid fa-handshake-simple"></i></div>';
+      partnerHtml += '  <div class="p-4 rounded-xl bg-squid-deep/10 text-squid-deep text-2xl shrink-0"><i class="fa-solid ' + escapeHtml(p.icon) + '"></i></div>';
       partnerHtml += '  <div class="space-y-3">';
       partnerHtml += '    <div class="flex items-center gap-2 flex-wrap">';
       partnerHtml += '      <h3 class="text-xl font-bold font-mono text-squid-deep">' + escapeHtml(p.title) + '</h3>';
@@ -302,7 +302,56 @@
     }
     document.getElementById('partnerships-container').innerHTML = partnerHtml;
 
-    // 4. RENDER THE "A FEW THINGS TO KNOW" JOIN INFO LIST
+    // 4. RENDER THE SIDEQUESTS
+    async function renderSideQuests() {
+      const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR8x3lryjTLmF_1o9Ob6oS5XCyjXxV0GrMZWDZWIN6dxEiOGFadX4rO7Zz7sJvoiy4sjW480pQm03GH/pub?gid=0&single=true&output=csv';
+      const container = document.getElementById('side-quests-container');
+      if (!container) return; // Guard clause in case the element isn't in the DOM
+
+      try {
+        const response = await fetch(CSV_URL);
+        const data = await response.text();
+        const rows = data.split('\n')
+          .map(function (row) { return row.split(',').map(function (cell) { return cell.trim(); }); })
+          .filter(function (cols) { return cols.some(function (cell) { return cell.length > 0; }); });
+
+        if (rows.length < 2) {
+          container.innerHTML = '<p class="text-sm opacity-60 font-mono">No side quests logged yet — check back soon.</p>';
+          return;
+        }
+
+        const header = rows[0];
+        const body = rows.slice(1, 11); // cap at first 10 entries
+
+        let html = '<div class="overflow-x-auto"><table class="w-full text-sm">';
+        html += '<thead><tr class="bg-squid-deep text-cream font-mono text-xs uppercase tracking-wider">';
+        header.forEach(function (col) {
+          html += '<th class="py-2 px-4 text-left first:rounded-l-lg last:rounded-r-lg">' + escapeHtml(col) + '</th>';
+        });
+        html += '</tr></thead><tbody>';
+        body.forEach(function (cols) {
+          html += '<tr class="border-b border-squid-deep/10 last:border-0 hover:bg-squid-deep/5 transition-colors">';
+          cols.forEach(function (cell, idx) {
+            if (idx === 1 && cell) {
+              html += '<td class="py-3 px-4 text-ink align-top"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-squid-deep/10 text-squid-deep">' + escapeHtml(cell) + '</span></td>';
+            } else {
+              html += '<td class="py-3 px-4 text-ink align-top' + (idx === 0 ? ' font-bold' : ' opacity-75 font-mono text-xs') + '">' + escapeHtml(cell) + '</td>';
+            }
+          });
+          html += '</tr>';
+        });
+        html += '</tbody></table></div>';
+        container.innerHTML = html;
+      } catch (err) {
+        console.error('Failed to load side quests:', err);
+        container.innerHTML = '<p class="text-sm opacity-60 font-mono">Couldn\'t load side quests right now — try refreshing.</p>';
+      }
+    }
+
+    // Call this when the page loads
+    renderSideQuests();
+
+    // 5. RENDER THE "A FEW THINGS TO KNOW" JOIN INFO LIST
     var joinInfoHtml = '';
     for (var k = 0; k < bundle.joinInfo.length; k++) {
       var info = bundle.joinInfo[k];
@@ -313,7 +362,7 @@
     }
     document.getElementById('join-info-container').innerHTML = joinInfoHtml;
 
-    // 5. RENDER THE EXISTING FAQ SYSTEM (Reuses the structural accordion handlers)
+    // 6. RENDER THE EXISTING FAQ SYSTEM (Reuses the structural accordion handlers)
     renderFaqs(bundle.faqs);
   }
 

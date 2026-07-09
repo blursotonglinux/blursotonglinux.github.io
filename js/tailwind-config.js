@@ -16,9 +16,9 @@ tailwind.config = {
         ink: '#2B2724',
         squid: '#A9B4EC',
         'squid-deep': '#3B4494',
-        fox: '#7A3B14',
-        rose: '#8A2740',
-        wheat: '#5C4A0D',
+        wheat: '#545126', // originally #5C4A0D
+        fox: '#7B3F00', // originally #7A3B14
+        rose: '#8A2740', 
         space: {
           bg: '#0B0F19',
           card: '#141B2D',
