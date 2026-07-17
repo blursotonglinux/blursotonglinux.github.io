@@ -137,30 +137,30 @@
 
   var commandsResponse = {
     ls: [
-      '<span class="text-space-gold font-bold">$</span> ls /home/asteroid-B-612',
-      '<span class="text-green-400">volcanoes/</span>  <span class="text-space-starlight/70">(3: two active, one dormant — good for a quick breakfast toast)</span>',
-      '<span class="text-blue-300">rose.txt</span>  <span class="text-space-starlight/70">(1 vain, singular, irreplaceable)</span>',
-      '<span class="text-red-400">baobab_seeds/</span>  <span class="text-space-starlight/70">(dangerous — must be weeded out every single day)</span>'
+      '<span class="text-gold font-bold">$</span> ls /home/asteroid-B-612',
+      '<span class="text-green-400">volcanoes/</span>  <span class="text-ink-100/70">(3: two active, one dormant — good for a quick breakfast toast)</span>',
+      '<span class="text-blue-300">rose.txt</span>  <span class="text-ink-100/70">(1 vain, singular, irreplaceable)</span>',
+      '<span class="text-red-400">baobab_seeds/</span>  <span class="text-ink-100/70">(dangerous — must be weeded out every single day)</span>'
     ],
     whoami: [
-      '<span class="text-space-gold font-bold">$</span> whoami',
+      '<span class="text-gold font-bold">$</span> whoami',
       'grown_up_who_forgot_how_to_see.sh',
-      '<span class="text-space-starlight/80 italic text-xs">"My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant."</span>'
+      '<span class="text-ink-100/80 italic text-xs">"My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant."</span>'
     ],
     rose: [
-      '<span class="text-green-400">rookie@blur</span><span class="text-space-starlight/60">:</span><span class="text-blue-400">~</span><span class="text-space-starlight/60">$</span> <span class="text-teal-300">crontab</span> <span class="text-purple-300">-e</span>',
-      '<span class="block pl-4 text-space-starlight/40"># m h  dom mon dow   command</span>',
-      '<span class="block pl-4"><span class="text-amber-300">0 8 * * *</span> <span class="text-teal-300">./water_rose.sh</span> <span class="text-purple-300">--flower</span><span class="text-space-starlight/60">=</span><span class="text-emerald-300">rose</span>  <span class="text-space-starlight/40"># Set clock so that every day at 8am it triggers the rose-watering routine.</span></span>',
+      '<span class="text-green-400">rookie@blur</span><span class="text-ink-100/60">:</span><span class="text-blue-400">~</span><span class="text-ink-100/60">$</span> <span class="text-teal-300">crontab</span> <span class="text-purple-300">-e</span>',
+      '<span class="block pl-4 text-ink-100/40"># m h  dom mon dow   command</span>',
+      '<span class="block pl-4"><span class="text-amber-300">0 8 * * *</span> <span class="text-teal-300">./water_rose.sh</span> <span class="text-purple-300">--flower</span><span class="text-ink-100/60">=</span><span class="text-emerald-300">rose</span>  <span class="text-ink-100/40"># Set clock so that every day at 8am it triggers the rose-watering routine.</span></span>',
       '<span class="block pl-4">' + buildGrowingRose() + '</span>',
-      '<span class="block pl-4 text-space-starlight/80 italic text-xs">"It is the time you have wasted for your rose that makes your rose so important."</span>'
+      '<span class="block pl-4 text-ink-100/80 italic text-xs">"It is the time you have wasted for your rose that makes your rose so important."</span>'
     ],
     fox: null // filled in below, since it needs the lolcat builder
   };
   commandsResponse.fox = [
-    '<span class="text-green-400">rookie@blur</span><span class="text-space-starlight/60">:</span><span class="text-blue-400">~</span><span class="text-space-starlight/60">$</span> <span class="text-red-400 font-bold">sudo</span> <span class="text-teal-300">chown</span> <span class="text-amber-300">rookie:rookie</span> <span class="text-emerald-300">fox</span>',
-    '<span class="block pl-4 text-space-starlight/50">changed ownership of \'fox\' to <span class="text-amber-300">rookie:rookie</span></span>',
+    '<span class="text-green-400">rookie@blur</span><span class="text-ink-100/60">:</span><span class="text-blue-400">~</span><span class="text-ink-100/60">$</span> <span class="text-red-400 font-bold">sudo</span> <span class="text-teal-300">chown</span> <span class="text-amber-300">rookie:rookie</span> <span class="text-emerald-300">fox</span>',
+    '<span class="block pl-4 text-ink-100/50">changed ownership of \'fox\' to <span class="text-amber-300">rookie:rookie</span></span>',
     '<span class="block pl-4">' + buildLolcatFox() + '</span>',
-    '<span class="block pl-4 text-space-starlight/80 italic text-xs">"You become responsible, forever, for what you have tamed."</span>'
+    '<span class="block pl-4 text-ink-100/80 italic text-xs">"You become responsible, forever, for what you have tamed."</span>'
   ];
 
   function runCommand(cmdKey) {
@@ -168,7 +168,7 @@
     if (!lines) { return; }
 
     // Flash animation on execute
-    terminalScreen.innerHTML = '<div class="text-space-gold opacity-80 animate-pulse">Running process...</div>';
+    terminalScreen.innerHTML = '<div class="text-gold opacity-80 animate-pulse">Running process...</div>';
 
     setTimeout(function () {
       var html = '';
@@ -185,7 +185,7 @@
   function openContactForm(subject) {
     console.log('Setting up onboarding for focus area: ' + subject);
     var confirmNotice = document.createElement('div');
-    confirmNotice.className = 'fixed bottom-5 right-5 z-50 p-4 rounded-xl bg-squid-deep text-cream shadow-lg text-xs font-mono max-w-xs transition-opacity duration-300';
+    confirmNotice.className = 'fixed bottom-5 right-5 z-50 p-4 rounded-xl bg-squid-700 text-ink-50 shadow-lg text-xs font-mono max-w-xs transition-opacity duration-300';
     confirmNotice.innerHTML = 'Scroll down to email us and mention your interest: <strong>"' + subject + '"</strong>';
     document.body.appendChild(confirmNotice);
     setTimeout(function () {
@@ -214,14 +214,14 @@
       var question = escapeHtml(faqList[i].question);
       var answer = escapeHtml(faqList[i].answer).replace(/\n/g, '<br>');
 
-      html += '<div class="rounded-2xl border border-squid-deep/20 bg-cream shadow-sm overflow-hidden">';
+      html += '<div class="rounded-2xl border border-squid-700/20 bg-ink-50 shadow-sm overflow-hidden">';
       html += '  <h3 class="m-0">';
-      html += '    <button type="button" id="faq-question-' + i + '" aria-expanded="false" aria-controls="faq-answer-' + i + '" class="faq-toggle w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-bold font-mono text-squid-deep">';
+      html += '    <button type="button" id="faq-question-' + i + '" aria-expanded="false" aria-controls="faq-answer-' + i + '" class="faq-toggle w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-bold font-mono text-squid-700">';
       html += '      <span>' + question + '</span>';
       html += '      <i class="fa-solid fa-chevron-down text-sm transition-transform duration-200 shrink-0" aria-hidden="true"></i>';
       html += '    </button>';
       html += '  </h3>';
-      html += '  <div id="faq-answer-' + i + '" role="region" aria-labelledby="faq-question-' + i + '" class="hidden px-5 pb-4 text-sm text-ink leading-relaxed opacity-90">' + answer + '</div>';
+      html += '  <div id="faq-answer-' + i + '" role="region" aria-labelledby="faq-question-' + i + '" class="hidden px-5 pb-4 text-sm text-ink-700 leading-relaxed opacity-90">' + answer + '</div>';
       html += '</div>';
     }
 
@@ -272,8 +272,8 @@
     var valuesHtml = '';
     for (var i = 0; i < bundle.valuesCards.length; i++) {
       var v = bundle.valuesCards[i];
-      valuesHtml += '<div class="p-8 rounded-2xl bg-cream border border-squid-deep/20 shadow-sm hover:shadow-md transition-shadow">';
-      valuesHtml += '  <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-' + escapeHtml(v.color) + ' text-cream mb-6">';
+      valuesHtml += '<div class="p-8 rounded-2xl bg-ink-50 border border-squid-700/20 shadow-sm hover:shadow-md transition-shadow">';
+      valuesHtml += '  <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-' + escapeHtml(v.color) + ' text-ink-50 mb-6">';
       valuesHtml += '    <i class="fa-solid ' + escapeHtml(v.icon) + ' text-2xl"></i>';
       valuesHtml += '  </div>';
       valuesHtml += '  <h3 class="text-xl font-bold font-mono mb-3 text-' + escapeHtml(v.color) + '">' + escapeHtml(v.title) + '</h3>';
@@ -286,18 +286,18 @@
     var partnerHtml = '';
     for (var j = 0; j < bundle.partnerships.length; j++) {
       var p = bundle.partnerships[j];
-      partnerHtml += '<div class="p-6 md:p-8 rounded-2xl bg-lavender border border-squid-deep/20 flex flex-col sm:flex-row gap-6 items-start hover:scale-[1.01] transition-transform duration-200 shadow-sm">';
-      partnerHtml += '  <div class="p-4 rounded-xl bg-squid-deep/10 text-squid-deep text-2xl shrink-0"><i class="fa-solid ' + escapeHtml(p.icon) + '"></i></div>';
+      partnerHtml += '<div class="p-6 md:p-8 rounded-2xl bg-squid-100 border border-squid-700/20 flex flex-col sm:flex-row gap-6 items-start hover:scale-[1.01] transition-transform duration-200 shadow-sm">';
+      partnerHtml += '  <div class="p-4 rounded-xl bg-squid-700/10 text-squid-700 text-2xl shrink-0"><i class="fa-solid ' + escapeHtml(p.icon) + '"></i></div>';
       partnerHtml += '  <div class="space-y-3">';
       partnerHtml += '    <div class="flex items-center gap-2 flex-wrap">';
-      partnerHtml += '      <h3 class="text-xl font-bold font-mono text-squid-deep">' + escapeHtml(p.title) + '</h3>';
+      partnerHtml += '      <h3 class="text-xl font-bold font-mono text-squid-700">' + escapeHtml(p.title) + '</h3>';
       partnerHtml += '      <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold ' + escapeHtml(p.badgeStyle) + '">' + escapeHtml(p.badgeText) + '</span>';
       partnerHtml += '    </div>';
       partnerHtml += '    <p class="text-sm leading-relaxed opacity-90">' + escapeHtml(p.desc) + '</p>';
       if (p.extraMeta) {
-        partnerHtml += '    <p class="font-mono text-xs text-squid-deep font-semibold leading-relaxed opacity-70">' + escapeHtml(p.extraMeta) + '</p>';
+        partnerHtml += '    <p class="font-mono text-xs text-squid-700 font-semibold leading-relaxed opacity-70">' + escapeHtml(p.extraMeta) + '</p>';
       }
-      partnerHtml += '    <a href="#contact" onclick="openContactForm(\'' + escapeHtml(p.formSubject) + '\')" class="inline-flex items-center text-xs font-bold font-mono uppercase tracking-wider text-squid-deep hover:underline">Connect <i class="fa-solid fa-arrow-right-long ml-2"></i></a>';
+      partnerHtml += '    <a href="#contact" onclick="openContactForm(\'' + escapeHtml(p.formSubject) + '\')" class="inline-flex items-center text-xs font-bold font-mono uppercase tracking-wider text-squid-700 hover:underline">Connect <i class="fa-solid fa-arrow-right-long ml-2"></i></a>';
       partnerHtml += '  </div></div>';
     }
     document.getElementById('partnerships-container').innerHTML = partnerHtml;
@@ -324,18 +324,18 @@
         const body = rows.slice(1, 11); // cap at first 10 entries
 
         let html = '<div class="overflow-x-auto"><table class="w-full text-sm">';
-        html += '<thead><tr class="bg-squid-deep text-cream font-mono text-xs uppercase tracking-wider">';
+        html += '<thead><tr class="bg-squid-700 text-ink-50 font-mono text-xs uppercase tracking-wider">';
         header.forEach(function (col) {
           html += '<th class="py-2 px-4 text-left first:rounded-l-lg last:rounded-r-lg">' + escapeHtml(col) + '</th>';
         });
         html += '</tr></thead><tbody>';
         body.forEach(function (cols) {
-          html += '<tr class="border-b border-squid-deep/10 last:border-0 hover:bg-squid-deep/5 transition-colors">';
+          html += '<tr class="border-b border-squid-700/10 last:border-0 hover:bg-squid-700/5 transition-colors">';
           cols.forEach(function (cell, idx) {
             if (idx === 1 && cell) {
-              html += '<td class="py-3 px-4 text-ink align-top"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-squid-deep/10 text-squid-deep">' + escapeHtml(cell) + '</span></td>';
+              html += '<td class="py-3 px-4 text-ink-700 align-top"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-squid-700/10 text-squid-700">' + escapeHtml(cell) + '</span></td>';
             } else {
-              html += '<td class="py-3 px-4 text-ink align-top' + (idx === 0 ? ' font-bold' : ' opacity-75 font-mono text-xs') + '">' + escapeHtml(cell) + '</td>';
+              html += '<td class="py-3 px-4 text-ink-700 align-top' + (idx === 0 ? ' font-bold' : ' opacity-75 font-mono text-xs') + '">' + escapeHtml(cell) + '</td>';
             }
           });
           html += '</tr>';
@@ -356,7 +356,7 @@
     for (var k = 0; k < bundle.joinInfo.length; k++) {
       var info = bundle.joinInfo[k];
       joinInfoHtml += '<li class="flex items-start gap-3">';
-      joinInfoHtml += '  <span class="text-space-gold font-bold shrink-0">*</span>';
+      joinInfoHtml += '  <span class="text-gold font-bold shrink-0">*</span>';
       joinInfoHtml += '  <span><strong>' + escapeHtml(info.label) + ':</strong> ' + escapeHtml(info.desc) + '</span>';
       joinInfoHtml += '</li>';
     }

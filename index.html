@@ -20,64 +20,64 @@
  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-cream text-ink font-sans min-h-screen relative overflow-x-hidden antialiased">
+<body class="bg-ink-50 text-ink-700 font-sans min-h-screen relative overflow-x-hidden antialiased">
 
  <!-- NAVIGATION HEADER -->
- <header class="sticky top-0 z-50 backdrop-blur-md bg-cream/90 border-b border-squid-deep/10 transition-colors duration-500">
+ <header class="sticky top-0 z-50 backdrop-blur-md bg-ink-50/90 border-b border-squid-700/10 transition-colors duration-500">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
      <!-- Brand Logo / Identity -->
      <a href="#" class="flex items-center space-x-3 group" aria-label="BLUR Home">
-       <div class="relative w-9 h-9 flex items-center justify-center bg-squid-deep rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105">
+       <div class="relative w-9 h-9 flex items-center justify-center bg-squid-700 rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105">
          <img src="https://lh3.googleusercontent.com/d/1HeaZlw2oTCaRj4ws90VXnMnXO6NxQ99i" alt="BLUR sotong logo" class="w-3/4 h-3/4 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-         <i class="fa-brands fa-linux text-cream text-lg" style="display:none; align-items:center; justify-content:center;"></i>
-         <span class="absolute -top-1 -right-1 text-xs text-wheat animate-pulse">✦</span>
+         <i class="fa-brands fa-linux text-ink-50 text-lg" style="display:none; align-items:center; justify-content:center;"></i>
+         <span class="absolute -top-1 -right-1 text-xs text-wheat-900 animate-pulse">✦</span>
        </div>
        <div class="flex flex-col">
-         <span class="font-bold tracking-wider text-xl font-mono text-squid-deep">B L U R</span>
+         <span class="font-bold tracking-wider text-xl font-mono text-squid-700">B L U R</span>
          <span class="text-[10px] tracking-widest font-mono uppercase opacity-75">Linux Users &amp; Rookies</span>
        </div>
      </a>
 
      <!-- Desktop Navigation Links -->
      <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
-       <a href="#about" class="hover:text-squid-deep font-medium tracking-wide transition-colors">Values</a>
-       <a href="#partnerships" class="hover:text-squid-deep font-medium tracking-wide transition-colors">Partner</a>
-       <a href="#sessions" class="hover:text-squid-deep font-medium tracking-wide transition-colors">Weekly</a>
-       <a href="#join" class="hover:text-squid-deep font-medium tracking-wide transition-colors">How to Join</a>
-       <a href="#faq" class="hover:text-squid-deep font-medium tracking-wide transition-colors">FAQ</a>
-       <a href="#contact" class="hover:text-squid-deep font-medium tracking-wide transition-colors">Contact</a>
+       <a href="#about" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Values</a>
+       <a href="#partnerships" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Partner</a>
+       <a href="#sessions" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Weekly</a>
+       <a href="#join" class="hover:text-squid-700 font-medium tracking-wide transition-colors">How to Join</a>
+       <a href="#faq" class="hover:text-squid-700 font-medium tracking-wide transition-colors">FAQ</a>
+       <a href="#contact" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Contact</a>
      </nav>
 
      <!-- Join CTA & Mobile Menu -->
      <div class="flex items-center space-x-4">
-       <a href="#join" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-bold font-mono uppercase tracking-wider rounded-lg bg-squid-deep text-cream hover:bg-squid-deep/90 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+       <a href="#join" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-bold font-mono uppercase tracking-wider rounded-lg bg-squid-700 text-ink-50 hover:bg-squid-700/90 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
          Join Us
        </a>
 
        <!-- Mobile Menu Toggle Button -->
-       <button id="mobile-menu-btn" class="p-2 md:hidden text-squid-deep" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+       <button id="mobile-menu-btn" class="p-2 md:hidden text-squid-700" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
          <i class="fa-solid fa-bars text-xl"></i>
        </button>
      </div>
    </div>
 
    <!-- Mobile Navigation Drawer -->
-   <div id="mobile-menu" class="hidden md:hidden bg-lavender border-b border-squid-deep/20 px-4 py-4 space-y-3">
-     <a href="#about" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">Values</a>
-     <a href="#partnerships" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">Partner</a>
-     <a href="#sessions" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">Weekly</a>
-     <a href="#join" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">How to Join</a>
-     <a href="#faq" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">FAQ</a>
-     <a href="#contact" class="block py-2 text-base font-medium hover:text-squid-deep transition-colors">Contact</a>
-     <a href="#join" class="block text-center py-2.5 mt-4 text-sm font-bold font-mono uppercase tracking-wider rounded bg-squid-deep text-cream">
+   <div id="mobile-menu" class="hidden md:hidden bg-squid-100 border-b border-squid-700/20 px-4 py-4 space-y-3">
+     <a href="#about" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Values</a>
+     <a href="#partnerships" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Partner</a>
+     <a href="#sessions" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Weekly</a>
+     <a href="#join" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">How to Join</a>
+     <a href="#faq" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">FAQ</a>
+     <a href="#contact" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Contact</a>
+     <a href="#join" class="block text-center py-2.5 mt-4 text-sm font-bold font-mono uppercase tracking-wider rounded bg-squid-700 text-ink-50">
        Join Us
      </a>
    </div>
  </header>
 
- <!-- HERO SECTION (the only dark / "deep space" section on the page) -->
- <section id="hero-section" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden z-10 bg-space-bg text-space-starlight" aria-labelledby="hero-title">
+ <!-- HERO SECTION -->
+ <section id="hero-section" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden z-10 bg-ink-900 text-ink-100" aria-labelledby="hero-title">
    <canvas id="space-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
 
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -87,17 +87,17 @@
 
        <!-- Left Column: Whimsical Text Core -->
        <div class="lg:col-span-7 space-y-6">
-         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-space-gold/20 bg-space-gold/5">
-           <span id="hero-tagline" class="text-xs font-semibold tracking-widest font-mono text-space-gold uppercase">BLUR SOTONG LINUX</span>
+         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold/20 bg-gold/5">
+           <span id="hero-tagline" class="text-xs font-semibold tracking-widest font-mono text-gold uppercase">BLUR SOTONG LINUX</span>
          </div>
 
-         <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-space-starlight">
+         <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-ink-100">
            <span id="hero-title-white">Blending Linux Users</span> <br class="hidden sm:inline">
-           <span id="hero-title-gold" class="text-space-gold font-mono">&amp; Rookies.</span>
+           <span id="hero-title-gold" class="text-gold font-mono">&amp; Rookies.</span>
          </h1>
 
          <!-- The Prince-inspired Quote Hook -->
-         <blockquote class="border-l-4 border-space-gold/50 pl-4 py-2 italic text-lg text-balance text-space-starlight/85">
+         <blockquote class="border-l-4 border-gold/50 pl-4 py-2 italic text-lg text-balance text-ink-100/85">
            <span id="hero-quote">"It is only with the heart that one can see rightly; <br> what is essential is invisible to the eye."</span>
            <span id="hero-quote-author" class="block text-sm font-mono mt-1 font-normal opacity-80">— Antoine de Saint-Exupéry</span>
          </blockquote>
@@ -108,10 +108,10 @@
 
          <!-- CTAs -->
          <div class="flex flex-col sm:flex-row gap-4 pt-4">
-           <a href="#join" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl bg-space-gold text-space-bg hover:bg-space-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+           <a href="#join" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl bg-gold text-ink-900 hover:bg-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
              Start Your Sidequest <i class="fa-solid fa-rocket ml-2"></i>
            </a>
-           <a href="#about" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl border border-space-squid/40 text-space-squid hover:bg-space-squid/10 transition-all">
+           <a href="#about" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl border border-squid-300/40 text-squid-300 hover:bg-squid-300/10 transition-all">
              Our Values <i class="fa-solid fa-book-open ml-2"></i>
            </a>
          </div>
@@ -121,7 +121,7 @@
        <div class="lg:col-span-5 relative">
          <!-- Whimsical Little Prince Planet SVG behind Terminal -->
          <div class="absolute -top-12 -left-12 w-32 h-32 opacity-30 floating-star">
-           <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-space-gold">
+           <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-gold">
              <circle cx="50" cy="50" r="30" />
              <ellipse cx="50" cy="50" rx="45" ry="10" transform="rotate(-15 50 50)" fill="none" stroke="currentColor" stroke-width="3" />
              <circle cx="50" cy="18" r="3" />
@@ -130,15 +130,15 @@
          </div>
 
          <!-- The Sheep Box Terminal Wrapper -->
-         <div class="relative bg-space-card rounded-2xl shadow-xl border-2 border-space-gold/30 overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300">
+         <div class="relative bg-ink-800 rounded-2xl shadow-xl border-2 border-gold/30 overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300">
            <!-- Terminal Header -->
-           <div class="bg-space-bg px-4 py-3 border-b border-space-gold/20 flex items-center justify-between">
+           <div class="bg-ink-900 px-4 py-3 border-b border-gold/20 flex items-center justify-between">
              <div class="flex space-x-1.5">
                <span class="w-3 h-3 rounded-full bg-red-400"></span>
                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
                <span class="w-3 h-3 rounded-full bg-green-400"></span>
              </div>
-             <span class="text-xs font-mono font-bold tracking-widest text-space-gold opacity-90">
+             <span class="text-xs font-mono font-bold tracking-widest text-gold opacity-90">
                <i class="fa-solid fa-terminal mr-1"></i> drawing_machine.sh
              </span>
              <span class="w-4"></span>
@@ -147,9 +147,9 @@
            <!-- Terminal Screen -->
            <div class="p-6 font-mono text-sm leading-relaxed min-h-[280px] flex flex-col justify-between">
              <div id="terminal-screen" class="space-y-3">
-               <div class="text-space-starlight/50"># Initiating Saint-Exupéry engine...</div>
-               <div><span class="text-space-gold font-bold">$</span> cat secret_box.txt</div>
-               <div class="text-space-gold font-bold p-3 bg-space-bg/50 border border-dashed border-space-gold/30 rounded-lg text-center">
+               <div class="text-ink-100/50"># Initiating Saint-Exupéry engine...</div>
+               <div><span class="text-gold font-bold">$</span> cat secret_box.txt</div>
+               <div class="text-gold font-bold p-3 bg-ink-900/50 border border-dashed border-gold/30 rounded-lg text-center">
                  <pre class="inline-block text-left text-xs sm:text-sm leading-tight font-mono">
  +-------------------+
  |   *   .   _   *   |
@@ -163,19 +163,19 @@
              </div>
 
              <!-- Mini interactive trigger buttons inside the box -->
-             <div class="border-t border-space-gold/10 pt-4 mt-4">
+             <div class="border-t border-gold/10 pt-4 mt-4">
                <p class="text-xs opacity-75 mb-2 font-bold font-mono text-center">Try a few commands on the box:</p>
                <div class="grid grid-cols-2 gap-2 text-xs">
-                 <button onclick="runCommand('ls')" class="px-2 py-1.5 rounded bg-space-bg hover:bg-space-gold/20 border border-space-gold/30 transition-colors">
+                 <button onclick="runCommand('ls')" class="px-2 py-1.5 rounded bg-ink-900 hover:bg-gold/20 border border-gold/30 transition-colors">
                    $ ls
                  </button>
-                 <button onclick="runCommand('whoami')" class="px-2 py-1.5 rounded bg-space-bg hover:bg-space-gold/20 border border-space-gold/30 transition-colors">
+                 <button onclick="runCommand('whoami')" class="px-2 py-1.5 rounded bg-ink-900 hover:bg-gold/20 border border-gold/30 transition-colors">
                    $ whoami
                  </button>
-                 <button onclick="runCommand('rose')" class="px-2 py-1.5 rounded bg-space-bg hover:bg-space-gold/20 border border-space-gold/30 transition-colors">
+                 <button onclick="runCommand('rose')" class="px-2 py-1.5 rounded bg-ink-900 hover:bg-gold/20 border border-gold/30 transition-colors">
                    $ crontab -e
                  </button>
-                 <button onclick="runCommand('fox')" class="px-2 py-1.5 rounded bg-space-bg hover:bg-space-gold/20 border border-space-gold/30 transition-colors">
+                 <button onclick="runCommand('fox')" class="px-2 py-1.5 rounded bg-ink-900 hover:bg-gold/20 border border-gold/30 transition-colors">
                    $ chown fox
                  </button>
                </div>
@@ -184,7 +184,7 @@
          </div>
 
          <!-- Little Planet Decorative Starlet -->
-         <div class="absolute -bottom-8 -right-4 text-space-gold text-2xl floating-star" style="animation-delay: 1.5s;">✦</div>
+         <div class="absolute -bottom-8 -right-4 text-gold text-2xl floating-star" style="animation-delay: 1.5s;">✦</div>
        </div>
 
      </div>
@@ -192,31 +192,31 @@
  </section>
 
  <!-- VALUES / ABOUT SECTION -->
- <section id="about" class="py-20 bg-lavender transition-colors duration-500 relative" aria-labelledby="about-title">
+ <section id="about" class="py-20 bg-squid-100 transition-colors duration-500 relative" aria-labelledby="about-title">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
      <!-- Section Header -->
      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-       <span class="text-xs font-bold tracking-widest font-mono text-squid-deep uppercase">Values</span>
-       <h2 id="about-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Values</span>
+       <h2 id="about-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
          Slow, Peer-Based, Passion-Led.
        </h2>
-       <div class="w-16 h-1 bg-squid-deep mx-auto rounded-full"></div>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
        <p class="text-lg text-balance opacity-85 pt-2">
          This isn't a 5-minute bootcamp. We are reclaiming learning.
        </p>
      </div>
 
-     <!-- Key Values Grid (populated from SITE_BUNDLE.valuesCards, see js/content.js) -->
+     <!-- Key Values Grid (see js/content.js) -->
      <div id="values-grid-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"></div>
 
      <!-- Self-Aware Reality Check Banner -->
-     <div class="p-6 md:p-8 rounded-2xl border-2 border-dashed border-squid-deep/40 bg-squid-deep/5 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
+     <div class="p-6 md:p-8 rounded-2xl border-2 border-dashed border-squid-700/40 bg-squid-700/5 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
        <div class="text-4xl text-center md:text-left">🦑</div>
        <div class="space-y-2 flex-1 text-left md:text-left">
-         <h4 class="font-bold font-mono text-squid-deep">A Small Note on the Name:</h4>
+         <h4 class="font-bold font-mono text-squid-700">A Small Note on the Name:</h4>
          <p class="text-sm text-pretty opacity-90 leading-relaxed">
-           Leaning into the Singlish phrase<strong class="font-mono text-squid-deep"> blur like sotong</strong>, the name <strong class="font-mono text-squid-deep">BLUR</strong> playfully embraces that initial feeling of absolute cluelessness when a rookie first steps into the Linux playground. <br> Behind the tongue-in-cheek title, however, lies a genuine mission to introducing youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.
+           Leaning into the Singlish phrase<strong class="font-mono text-squid-700"> blur like sotong</strong>, the name <strong class="font-mono text-squid-700">BLUR</strong> playfully embraces that initial feeling of absolute cluelessness when a rookie first steps into the Linux playground. <br> Behind the tongue-in-cheek title, however, lies a genuine mission to introducing youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.
          </p>
        </div>
      </div>
@@ -225,15 +225,15 @@
  </section>
 
  <!-- COLLABORATIONS & PARTNERSHIPS SECTION -->
- <section id="partnerships" class="py-20 bg-cream relative overflow-hidden" aria-labelledby="partnerships-title">
+ <section id="partnerships" class="py-20 bg-ink-50 relative overflow-hidden" aria-labelledby="partnerships-title">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
        <!-- Left Side: Graphic & Copy -->
        <div class="lg:col-span-5 space-y-6">
-         <span class="text-xs font-bold tracking-widest font-mono text-rose uppercase">Partner</span>
-         <h2 id="partnerships-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+         <span class="text-xs font-bold tracking-widest font-mono text-rose-800 uppercase">Partner</span>
+         <h2 id="partnerships-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
            Partner With Us
          </h2>
          <p class="text-lg opacity-90 leading-relaxed">
@@ -249,15 +249,15 @@
  </section>
 
  <!-- CALENDAR & SESSION SCHEDULE SECTION -->
- <section id="sessions" class="py-20 bg-lavender transition-colors duration-500 relative" aria-labelledby="sessions-title">
+ <section id="sessions" class="py-20 bg-squid-100 transition-colors duration-500 relative" aria-labelledby="sessions-title">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-       <span class="text-xs font-bold tracking-widest font-mono text-squid-deep uppercase">Weekly</span>
-       <h2 id="sessions-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Weekly</span>
+       <h2 id="sessions-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
          Saturday Sessions
        </h2>
-       <div class="w-16 h-1 bg-squid-deep mx-auto rounded-full"></div>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
        <p class="text-lg text-balance opacity-85 pt-2">
          After the 4 tutorial sessions, be a part of a community that meets weekly to learn and support each other.
        </p>
@@ -267,14 +267,14 @@
 
        <!-- Interactive Date Cards -->
        <div class="lg:col-span-6 space-y-4">
-         <h3 class="text-xl font-bold font-mono text-squid-deep mb-6 flex items-center gap-2">
+         <h3 class="text-xl font-bold font-mono text-squid-700 mb-6 flex items-center gap-2">
            <i class="fa-regular fa-map"></i> Upcoming Tutorial Round
          </h3>
 
          <!-- Date Item 1 -->
-         <div class="p-4 rounded-xl bg-cream border border-squid-deep/10 flex items-center justify-between shadow-sm">
+         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
            <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-deep text-cream flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
+             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
                <span class="text-xs uppercase">Aug</span>
                <span class="text-lg">08</span>
              </div>
@@ -283,13 +283,13 @@
                <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
              </div>
            </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-deep/5 px-2 py-1 rounded">VIVITA</span>
+           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
          </div>
 
          <!-- Date Item 2 -->
-         <div class="p-4 rounded-xl bg-cream border border-squid-deep/10 flex items-center justify-between shadow-sm">
+         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
            <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-deep text-cream flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
+             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
                <span class="text-xs uppercase">Aug</span>
                <span class="text-lg">15</span>
              </div>
@@ -298,13 +298,13 @@
                <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
              </div>
            </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-deep/5 px-2 py-1 rounded">VIVITA</span>
+           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
          </div>
 
          <!-- Date Item 3 -->
-         <div class="p-4 rounded-xl bg-cream border border-squid-deep/10 flex items-center justify-between shadow-sm">
+         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
            <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-deep text-cream flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
+             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
                <span class="text-xs uppercase">Aug</span>
                <span class="text-lg">22</span>
              </div>
@@ -313,13 +313,13 @@
                <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
              </div>
            </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-deep/5 px-2 py-1 rounded">VIVITA</span>
+           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
          </div>
 
          <!-- Date Item 4 -->
-         <div class="p-4 rounded-xl bg-cream border border-squid-deep/10 flex items-center justify-between shadow-sm">
+         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
            <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-deep text-cream flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
+             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
                <span class="text-xs uppercase">Aug</span>
                <span class="text-lg">29</span>
              </div>
@@ -328,16 +328,16 @@
                <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
              </div>
            </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-deep/5 px-2 py-1 rounded">VIVITA</span>
+           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
          </div>
        </div>
 
        <!-- Google Calendar Responsive Embed wrapper -->
        <div class="lg:col-span-6 flex flex-col justify-between">
-        <h3 class="text-xl font-bold font-mono text-squid-deep mb-6 flex items-center gap-2">
+        <h3 class="text-xl font-bold font-mono text-squid-700 mb-6 flex items-center gap-2">
            <i class="fa-regular fa-calendar"></i> Weekly Sessions
          </h3>
-        <div class="bg-cream p-2 rounded-2xl border border-squid-deep/20 shadow-sm relative overflow-hidden flex-1 h-full min-h-[350px]">
+        <div class="bg-ink-50 p-2 rounded-2xl border border-squid-700/20 shadow-sm relative overflow-hidden flex-1 h-full min-h-[350px]">
           <iframe
             src="https://calendar.google.com/calendar/embed?src=ee20cbd94b47c4af2d2650b1051f690a03af875e8a9f09d717220ee8c4c7502e%40group.calendar.google.com&ctz=Asia%2FSingapore&mode=AGENDA&showNav=0&showTabs=0"
             class="w-full h-full min-h-[350px] rounded-lg border-0 opacity-90"
@@ -352,8 +352,8 @@
      </div>
 
      <!-- SideQuests Google Sheet API -->
-     <div class="mt-12 bg-cream rounded-2xl border border-squid-deep/20 shadow-sm p-6 md:p-8">
-       <h3 class="text-xl font-bold font-mono text-squid-deep mb-2 flex items-center gap-2">
+     <div class="mt-12 bg-ink-50 rounded-2xl border border-squid-700/20 shadow-sm p-6 md:p-8">
+       <h3 class="text-xl font-bold font-mono text-squid-700 mb-2 flex items-center gap-2">
          BLUR like Sotong Side Quests
        </h3>
        <p class="text-sm opacity-75 mb-6">
@@ -366,11 +366,11 @@
  </section>
 
  <!-- JOIN US / CTA REGISTRATION SECTION -->
- <section id="join" class="py-20 bg-cream relative overflow-hidden z-10" aria-labelledby="join-title">
+ <section id="join" class="py-20 bg-ink-50 relative overflow-hidden z-10" aria-labelledby="join-title">
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
 
      <!-- Whimsical Asteroid Drawing SVG -->
-     <div class="w-24 h-24 mx-auto opacity-80 text-squid-deep floating-star">
+     <div class="w-24 h-24 mx-auto opacity-80 text-squid-700 floating-star">
        <svg viewBox="0 0 100 100" class="w-full h-full fill-current">
          <path d="M50 15 C60 12, 75 18, 80 30 C85 42, 78 55, 75 70 C72 85, 55 92, 45 88 C35 84, 18 78, 15 65 C12 52, 22 42, 25 30 C28 18, 40 18, 50 15 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4"/>
          <!-- Little Rose Glowing in Box -->
@@ -381,25 +381,25 @@
      </div>
 
      <div class="space-y-4">
-       <h2 id="join-title" class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
+       <h2 id="join-title" class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-700">
          Join the community playground
        </h2>
        <p class="text-lg text-balance max-w-2xl mx-auto opacity-95">
-         No prior programming experience is needed. <br> Just take a look at a few things below first.
+         No prior programming experience is needed. <br> Start with the '4x' tutorial round, then continue growing with the community.
        </p>
      </div>
 
-     <!-- A Few Things to Know Before Joining (populated from SITE_BUNDLE.joinInfo, see js/content.js) -->
-     <div class="bg-lavender rounded-2xl p-6 md:p-8 text-left border border-squid-deep/20 shadow-md max-w-2xl mx-auto space-y-4">
-       <h3 class="text-md font-bold font-mono text-squid-deep uppercase tracking-wider flex items-center gap-2">
-         <i class="fa-solid fa-circle-info"></i> A Few Things to Know:
+     <!-- A Few Things to Know Before Joining (see js/content.js) -->
+     <div class="bg-squid-100 rounded-2xl p-6 md:p-8 text-left border border-squid-700/20 shadow-md max-w-2xl mx-auto space-y-4">
+       <h3 class="text-md font-bold font-mono text-squid-700 uppercase tracking-wider flex items-center gap-2">
+         <i class="fa-solid fa-circle-info"></i> About the starter '4x' tutorial round:
        </h3>
        <ul id="join-info-container" class="space-y-3 text-sm md:text-base leading-relaxed" role="list"></ul>
      </div>
 
      <!-- Main Anchor for dynamic script scrolls & Form CTA -->
      <div id="contact-anchor" class="pt-4">
-       <a href="https://forms.gle/Rrgg8524gVWBYKRu8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold font-mono uppercase tracking-wider rounded-2xl bg-squid-deep text-cream hover:bg-squid-deep/90 transition-all shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 duration-200">
+       <a href="https://forms.gle/Rrgg8524gVWBYKRu8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold font-mono uppercase tracking-wider rounded-2xl bg-squid-700 text-ink-50 hover:bg-squid-700/90 transition-all shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 duration-200">
          Join the Next Intake <i class="fa-solid fa-clipboard-list ml-3"></i>
        </a>
        <p class="text-xs font-mono mt-3 opacity-75">
@@ -410,16 +410,16 @@
    </div>
  </section>
 
- <!-- FAQ SECTION (populated from SITE_BUNDLE.faqs, see js/content.js) -->
- <section id="faq" class="py-20 bg-lavender relative overflow-hidden" aria-labelledby="faq-title">
+ <!-- FAQ SECTION (see js/content.js) -->
+ <section id="faq" class="py-20 bg-squid-100 relative overflow-hidden" aria-labelledby="faq-title">
    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
      <div class="text-center mb-12 space-y-3">
-       <span class="text-xs font-bold tracking-widest font-mono text-squid-deep uppercase">FAQ</span>
-       <h2 id="faq-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">FAQ</span>
+       <h2 id="faq-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
          Frequently Asked Questions
        </h2>
-       <div class="w-16 h-1 bg-squid-deep mx-auto rounded-full"></div>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
        <p class="text-lg text-balance opacity-85 pt-2">
          Still blur? Here are a few questions we thought you might ask.
        </p>
@@ -435,13 +435,13 @@
  </section>
 
  <!-- FOOTER -->
- <footer id="contact" class="bg-space-bg text-space-starlight transition-colors duration-500 border-t border-space-gold/20 py-12 relative z-10 overflow-hidden" aria-label="Footer Area" aria-labelledby="contact-title">
+ <footer id="contact" class="bg-ink-900 text-ink-100 transition-colors duration-500 border-t border-gold/20 py-12 relative z-10 overflow-hidden" aria-label="Footer Area" aria-labelledby="contact-title">
    <!-- Twinkling star field, same engine as the hero sky -->
    <canvas id="footer-space-canvas" class="absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
 
    <!-- Whimsical Little Prince Planet SVG, top-left, near the heading -->
    <div class="absolute top-6 left-6 sm:left-12 w-24 h-24 opacity-30 floating-star" aria-hidden="true">
-     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-space-gold">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-gold">
        <circle cx="50" cy="50" r="30" />
        <ellipse cx="50" cy="50" rx="45" ry="10" transform="rotate(-15 50 50)" fill="none" stroke="currentColor" stroke-width="3" />
        <circle cx="50" cy="18" r="3" />
@@ -451,7 +451,7 @@
 
    <!-- Second, smaller ringed planet, bottom-right, near the copyright line -->
    <div class="absolute bottom-6 right-6 sm:right-12 w-20 h-20 opacity-20 floating-star" style="animation-delay: 0.8s;" aria-hidden="true">
-     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-space-squid">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-squid-300">
        <circle cx="50" cy="50" r="22" />
        <ellipse cx="50" cy="50" rx="42" ry="9" transform="rotate(20 50 50)" fill="none" stroke="currentColor" stroke-width="3" />
        <circle cx="30" cy="30" r="2" />
@@ -460,38 +460,38 @@
 
    <!-- Third, tiny moon, upper-right -->
    <div class="absolute top-6 right-10 w-10 h-10 opacity-25 floating-star hidden sm:block" style="animation-delay: 2.2s;" aria-hidden="true">
-     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-space-starlight">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-ink-100">
        <circle cx="50" cy="50" r="18" />
      </svg>
    </div>
 
    <!-- Scattered sparkle accents -->
-   <span class="absolute top-10 left-1/4 text-space-gold text-lg opacity-70 floating-star" style="animation-delay: 0.4s;" aria-hidden="true">✦</span>
-   <span class="absolute bottom-16 left-16 text-space-starlight text-xs opacity-60 floating-star" style="animation-delay: 1.6s;" aria-hidden="true">✦</span>
-   <span class="absolute top-1/3 right-1/4 text-space-squid text-sm opacity-50 floating-star" style="animation-delay: 2.8s;" aria-hidden="true">✦</span>
-   <span class="absolute bottom-8 right-1/3 text-space-gold text-xl opacity-40 floating-star hidden sm:inline" style="animation-delay: 1.1s;" aria-hidden="true">✦</span>
+   <span class="absolute top-10 left-1/4 text-gold text-lg opacity-70 floating-star" style="animation-delay: 0.4s;" aria-hidden="true">✦</span>
+   <span class="absolute bottom-16 left-16 text-ink-100 text-xs opacity-60 floating-star" style="animation-delay: 1.6s;" aria-hidden="true">✦</span>
+   <span class="absolute top-1/3 right-1/4 text-squid-300 text-sm opacity-50 floating-star" style="animation-delay: 2.8s;" aria-hidden="true">✦</span>
+   <span class="absolute bottom-8 right-1/3 text-gold text-xl opacity-40 floating-star hidden sm:inline" style="animation-delay: 1.1s;" aria-hidden="true">✦</span>
 
    <!-- CONTACT SECTION -->
-   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 mb-10 border-b border-space-gold/20 text-center">
-     <span class="text-xs font-bold tracking-widest font-mono text-space-gold uppercase">Contact</span>
-     <h2 id="contact-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-space-starlight mt-2 mb-4">
+   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 mb-10 border-b border-gold/20 text-center">
+     <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">Contact</span>
+     <h2 id="contact-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink-100 mt-2 mb-4">
        Get in Touch
      </h2>
      <p class="text-sm md:text-base opacity-85 max-w-xl mx-auto mb-6">
        Whether you'd like to donate hardware, offer a venue, or just say hi, <br/> drop us an email and we'll get back to you.
      </p>
-     <a href="mailto:blursotonglinux@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl bg-space-gold text-space-bg hover:bg-space-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+     <a href="mailto:blursotonglinux@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl bg-gold text-ink-900 hover:bg-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
        <i class="fa-solid fa-envelope mr-2"></i> BlurSotongLinux@gmail.com
      </a>
    </div>
 
    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-     <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-space-gold/20">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gold/20">
 
        <!-- Brand Bottom -->
        <div class="text-center md:text-left">
-         <p class="font-bold tracking-wider text-xl font-mono text-space-gold">B L U R</p>
+         <p class="font-bold tracking-wider text-xl font-mono text-gold">B L U R</p>
          <p class="text-xs font-mono opacity-80 mt-1">Blending Linux Users &amp; Rookies • Singapore</p>
        </div>
 

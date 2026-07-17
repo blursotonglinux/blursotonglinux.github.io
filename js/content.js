@@ -9,20 +9,20 @@ var SITE_BUNDLE = {
     hero_description: 'Linux powers most of the world\'s servers and everyday electronics, yet it goes largely unnoticed. \n\nBLUR is a free, volunteer-led weekly programme based in Singapore that introduces youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.'
   },
   valuesCards: [
-    { title: '01. Slow', desc: 'In a world of AI paradoxes where knowledge becomes more democratised yet facile, we navigate to safer waters - our learning is slow. While the world chases trends, we look under the hood and look for keystones.', icon: 'fa-hourglass-half', color: 'wheat' },
-    { title: '02. Peer-Based', desc: 'Designed with the aim to empower learners to discover and open doors, teach others and contribute back to open-source. Here, members are supported by a community of peers and facilitators, encouraged to share their learning journeys and continue growing together.', icon: 'fa-people-carry-box', color: 'fox' },
-    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many other niche interest areas. From the launchpoint of 4 starter sessions, members are then encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.', icon: 'fa-compass', color: 'rose' }
+    { title: '01. Slow', desc: 'In a world of AI paradoxes where knowledge becomes more democratised yet facile, we navigate to safer waters - our learning is slow. While the world chases trends, we look under the hood and look for keystones.', icon: 'fa-hourglass-half', color: 'wheat-900' },
+    { title: '02. Peer-Based', desc: 'Designed with the aim to empower learners to discover and open doors, teach others and contribute back to open-source. Here, members are supported by a community of peers and facilitators, encouraged to share their learning journeys and continue growing together.', icon: 'fa-people-carry-box', color: 'fox-900' },
+    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many other niche interest areas. From the launchpoint of 4 starter sessions, members are then encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.', icon: 'fa-compass', color: 'rose-800' }
   ],
   partnerships: [
-    { title: 'Laptop Recycling', icon: 'fa-laptop-medical', badgeText: 'MOST NEEDED', badgeStyle: 'bg-green-100 text-green-800', desc: 'We believe in circular technology. We revive old laptops with lightweight Linux distributions for members to borrow during tutorials. Heartfelt thanks to our partners SGBONO and VIVITA SG for keeping us going!', extraMeta: 'Example laptops: Lenovo ThinkPad X270', formSubject: 'Laptop Donation' },
-    { title: 'Venue Partners', icon: 'fa-people-roof', badgeText: 'ONGOING', badgeStyle: 'bg-blue-100 text-blue-800', desc: 'To run our slow, four-session programme and weekly sharing sessions, we look for safe physical spaces where adults, youths, and parent-child pairs can plug in, set up servers, make mistakes, and spill the occasional coffee. Let us know if you have room on weekends.', extraMeta: '', formSubject: 'Venue Partnership' }
+    { title: 'Laptop Recycling', icon: 'fa-laptop-medical', badgeText: 'MOST NEEDED', badgeStyle: 'bg-fox-100 text-fox-800', desc: 'We believe in circular technology. We revive old laptops with lightweight Linux distributions for members to borrow during tutorials. Heartfelt thanks to our partners SGBONO and VIVITA SG for keeping us going!', extraMeta: 'Example laptops: Lenovo ThinkPad X270', formSubject: 'Laptop Donation' },
+    { title: 'Venue Partners', icon: 'fa-people-roof', badgeText: 'ONGOING', badgeStyle: 'bg-wheat-100 text-wheat-800', desc: 'To run our slow, four-session programme and weekly sharing sessions, we look for safe physical spaces where adults, youths, and parent-child pairs can plug in, set up servers, make mistakes, and spill the occasional coffee. Let us know if you have room on weekends.', extraMeta: '', formSubject: 'Venue Partnership' }
   ],
   joinInfo: [
     { label: 'Free to Attend', desc: 'We operate with recycled laptops courtesy of SGBONO and VIVITA SG. (Note that participants should self-fund any additional hardware.)' },
     { label: 'Non-Tech Welcome', desc: 'No prior programming experience is required; however, keyboard proficiency is a minimum and a bit of grit too!' },
     { label: 'Four Tutorial Saturdays', desc: 'We ask joiners for a hard commit to all four tutorial sessions to cover the basics of Linux. If you are unable to attend any of the four sessions, we kindly ask that you join us for our next quarterly round of tutorials.' },
     { label: 'Share and Grow', desc: 'Every Saturday we encourage everyone to share their explorations or projects - it\'s an opportunity to ask for ideas or points and invite others to join!' },
-    { label: 'Parent-Child Pairs Welcome', desc: 'One form per person. We ask that the interest comes from the child themselves.' }
+    { label: 'Parent-Child Pairs Welcome', desc: 'One form per person. We ask that the interest comes from the individual themselves.' }
   ],
   faqs: [
     {
@@ -31,11 +31,11 @@ var SITE_BUNDLE = {
     },
     {
       question: 'How much does the 4-session tutorial cost?',
-      answer: 'For those whose intake is confirmed, it is free. \n\nWe are grateful for the support of partners who have provided laptops for you to borrow and space for us to gather for these sessions.\nTo keep our sessions going, we look for partners who share our equitable and whimsical view of technology.'
+      answer: 'For those whose intake is confirmed, it is free, only costing your commitment to 4 consecutive tutorial sessions. \n\nWe are grateful for the support of partners who have provided laptops for you to borrow and space for us to gather for these sessions.\nTo keep our sessions going, we look for partners who share our equitable and whimsical view of technology.'
     },
     {
       question: 'Can I use my own laptop for the tutorials?',
-      answer: 'For the tutorials we try to keep everyone on the same laptop specs to reduce unforeseen issues (missing tools, etc), which often stems from difference in hardware and/or software.'
+      answer: 'For the tutorials, we try to keep everyone on the same laptop specs to reduce unforeseen issues (missing tools, etc), which often stems from difference in hardware and/or software. \n\nAfter the tutorials, you\'re welcome to setup Linux on your own computer; some members have converted or dual-booted their own personal laptops (and even some of their family members\' too!)'
     },
     {
       question: 'What if I miss one of the tutorials?',
