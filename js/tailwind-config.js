@@ -6,6 +6,7 @@ tailwind.config = {
       fontFamily: {
         sans: ['Jost', 'sans-serif'],
         mono: ['"Atkinson Hyperlegible Mono"', 'monospace'],
+        serif: ["Libertinus Serif",'serif'],
       },
       colors: {
         // Standalone bright utility accent

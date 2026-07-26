@@ -321,27 +321,50 @@
         }
 
         const header = rows[0];
-        const body = rows.slice(1, 11); // cap at first 10 entries
+        const body = rows.slice(1, 16); // cap at first 15 entries
 
-        let html = '<div class="overflow-x-auto"><table class="w-full text-sm">';
-        html += '<thead><tr class="bg-squid-700 text-ink-50 font-mono text-xs uppercase tracking-wider">';
-        header.forEach(function (col) {
-          html += '<th class="py-2 px-4 text-left first:rounded-l-lg last:rounded-r-lg">' + escapeHtml(col) + '</th>';
-        });
-        html += '</tr></thead><tbody>';
+        // Mobile: one card per quest (no horizontal scrolling/squeezed columns)
+        let cardsHtml = '<div class="md:hidden space-y-4">';
         body.forEach(function (cols) {
-          html += '<tr class="border-b border-squid-700/10 last:border-0 hover:bg-squid-700/5 transition-colors">';
+          cardsHtml += '<div class="p-5 rounded-2xl bg-squid-100 border border-squid-700/20 shadow-sm space-y-3">';
           cols.forEach(function (cell, idx) {
-            if (idx === 1 && cell) {
-              html += '<td class="py-3 px-4 text-ink-700 align-top"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-squid-700/10 text-squid-700">' + escapeHtml(cell) + '</span></td>';
+            if (!cell) return;
+            if (idx === 0) {
+              cardsHtml += '<h4 class="font-bold font-mono text-ink-700">' + escapeHtml(cell) + '</h4>';
+            } else if (idx === 1) {
+              cardsHtml += '<p class="text-xs font-mono font-bold text-squid-700 leading-relaxed">' + escapeHtml(cell) + '</p>';
             } else {
-              html += '<td class="py-3 px-4 text-ink-700 align-top' + (idx === 0 ? ' font-bold' : ' opacity-75 font-mono text-xs') + '">' + escapeHtml(cell) + '</td>';
+              cardsHtml += '<p class="text-xs font-mono opacity-60"><span class="uppercase tracking-wider opacity-75">' + escapeHtml(header[idx] || '') + ':</span> ' + escapeHtml(cell) + '</p>';
             }
           });
-          html += '</tr>';
+          cardsHtml += '</div>';
         });
-        html += '</tbody></table></div>';
-        container.innerHTML = html;
+        cardsHtml += '</div>';
+
+        // Desktop/tablet: table
+        let tableHtml = '<div class="hidden md:block overflow-x-auto"><table class="w-full text-sm table-fixed">';
+        tableHtml += '<thead><tr class="bg-squid-700 text-ink-50 font-mono text-xs uppercase tracking-wider">';
+        header.forEach(function (col, idx) {
+          const isLastCol = idx === header.length - 1;
+          const widthClass = idx === 0 ? 'w-72' : (isLastCol ? 'w-28' : 'w-auto');
+          tableHtml += '<th class="py-2 px-4 text-left first:rounded-l-lg last:rounded-r-lg ' + widthClass + '">' + escapeHtml(col) + '</th>';
+        });
+        tableHtml += '</tr></thead><tbody>';
+        body.forEach(function (cols) {
+          tableHtml += '<tr class="border-b border-squid-700/10 last:border-0 hover:bg-squid-700/5 transition-colors">';
+          cols.forEach(function (cell, idx) {
+            const isLast = idx === cols.length - 1;
+            if (idx === 1 && cell) {
+              tableHtml += '<td class="py-3 px-4 text-ink-700 align-middle"><span class="text-xs font-mono font-bold text-squid-700 leading-relaxed">' + escapeHtml(cell) + '</span></td>';
+            } else {
+              tableHtml += '<td class="py-3 px-4 text-ink-700 align-middle' + (idx === 0 ? ' font-bold' : ' opacity-75 font-mono text-xs') + (isLast ? ' whitespace-nowrap' : '') + '">' + escapeHtml(cell) + '</td>';
+            }
+          });
+          tableHtml += '</tr>';
+        });
+        tableHtml += '</tbody></table></div>';
+
+        container.innerHTML = cardsHtml + tableHtml;
       } catch (err) {
         console.error('Failed to load side quests:', err);
         container.innerHTML = '<p class="text-sm opacity-60 font-mono">Couldn\'t load side quests right now — try refreshing.</p>';
