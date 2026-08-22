@@ -304,7 +304,7 @@
 
     // 4. RENDER THE SIDEQUESTS
     async function renderSideQuests() {
-      const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR8x3lryjTLmF_1o9Ob6oS5XCyjXxV0GrMZWDZWIN6dxEiOGFadX4rO7Zz7sJvoiy4sjW480pQm03GH/pub?gid=0&single=true&output=csv';
+      const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR8x3lryjTLmF_1o9Ob6oS5XCyjXxV0GrMZWDZWIN6dxEiOGFadX4rO7Zz7sJvoiy4sjW480pQm03GH/pub?gid=0&single=true&output=tsv';
       const container = document.getElementById('side-quests-container');
       if (!container) return; // Guard clause in case the element isn't in the DOM
 
@@ -312,7 +312,7 @@
         const response = await fetch(CSV_URL);
         const data = await response.text();
         const rows = data.split('\n')
-          .map(function (row) { return row.split(',').map(function (cell) { return cell.trim(); }); })
+          .map(function (row) { return row.split('\t').map(function (cell) { return cell.trim(); }); })
           .filter(function (cols) { return cols.some(function (cell) { return cell.length > 0; }); });
 
         if (rows.length < 2) {
