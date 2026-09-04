@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>About — BLUR</title>
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1HeaZlw2oTCaRj4ws90VXnMnXO6NxQ99i">
+ <!-- Google Fonts: Jost (Primary) & Atkinson Hyperlegible Mono (Accent/Code) -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,400..700;1,400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ <!-- FontAwesome for Little Prince-themed icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <!-- Tailwind CSS CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script src="js/tailwind-config.js"></script>
+
+ <!-- Custom CSS for specialized effects & canvas stars -->
+ <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-ink-50 text-ink-700 font-sans min-h-screen relative overflow-x-hidden antialiased">
+
+ <!-- NAVIGATION HEADER -->
+ <header class="sticky top-0 z-50 backdrop-blur-md bg-ink-50/90 border-b border-squid-700/10 transition-colors duration-500">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+     <!-- Brand Logo / Identity -->
+     <a href="index.html" class="flex items-center space-x-3 group" aria-label="BLUR Home">
+       <div class="relative w-9 h-9 flex items-center justify-center bg-squid-700 rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105">
+         <img src="https://lh3.googleusercontent.com/d/1HeaZlw2oTCaRj4ws90VXnMnXO6NxQ99i" alt="BLUR sotong logo" class="w-3/4 h-3/4 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+         <i class="fa-brands fa-linux text-ink-50 text-lg" style="display:none; align-items:center; justify-content:center;"></i>
+         <span class="absolute -top-1 -right-1 text-xs text-wheat-900 animate-pulse">✦</span>
+       </div>
+       <div class="flex flex-col">
+         <span class="font-bold tracking-wider text-xl font-mono text-squid-700">B L U R</span>
+         <span class="text-[10px] tracking-widest font-mono uppercase opacity-75">Linux Users &amp; Rookies</span>
+       </div>
+     </a>
+
+     <!-- Desktop Navigation Links + Mobile Menu Toggle, right-aligned as one group -->
+     <div class="flex items-center space-x-8">
+       <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+         <a href="index.html" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Home</a>
+         <a href="about.html" class="text-squid-700 font-bold tracking-wide transition-colors">About</a>
+         <a href="partner.html" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Partner</a>
+       </nav>
+
+       <!-- Mobile Menu Toggle Button -->
+       <button id="mobile-menu-btn" class="p-2 md:hidden text-squid-700" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+         <i class="fa-solid fa-bars text-xl"></i>
+       </button>
+     </div>
+   </div>
+
+   <!-- Mobile Navigation Drawer -->
+   <div id="mobile-menu" class="hidden md:hidden bg-squid-100 border-b border-squid-700/20 px-4 py-4 space-y-3">
+     <a href="index.html" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Home</a>
+     <a href="about.html" class="block py-2 text-base font-bold text-squid-700 transition-colors">About</a>
+     <a href="partner.html" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Partner</a>
+     <a href="index.html#join" class="block text-center py-2.5 mt-4 text-sm font-bold font-mono uppercase tracking-wider rounded bg-squid-700 text-ink-50">
+       Join Us
+     </a>
+   </div>
+ </header>
+
+ <!-- ABOUT HERO -->
+ <section class="relative py-16 md:py-24 bg-ink-900 text-ink-100 overflow-hidden" aria-labelledby="about-hero-headline">
+   <canvas class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 relative z-10">
+     <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">About Us</span>
+     <h1 id="about-hero-headline" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink-100"></h1>
+     <p id="about-hero-subhead" class="text-lg md:text-xl opacity-85 max-w-2xl mx-auto text-balance"></p>
+   </div>
+ </section>
+
+ <!-- THE ORIGIN: claim / reality split (deck slide 5) -->
+ <section class="py-20 bg-ink-50 relative" aria-labelledby="origin-title">
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">The Origin</span>
+       <h2 id="origin-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         Why BLUR exists
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="origin-panel"></div>
+   </div>
+ </section>
+
+ <!-- TODAY'S SOCIETAL CONTEXT: quote-stack (deck slide 6) -->
+ <section class="py-20 bg-squid-100 relative" aria-labelledby="societal-title">
+   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Today's Context</span>
+       <h2 id="societal-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         What we keep seeing
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="societal-context" class="text-lg md:text-xl leading-relaxed font-medium text-ink-700"></div>
+   </div>
+ </section>
+
+ <!-- LINUX RESPONSE: tri-colour claim/response cards (deck slide 11) -->
+ <section class="py-20 bg-ink-50 relative" aria-labelledby="linux-response-title">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Our Response</span>
+       <h2 id="linux-response-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         Linux breaks those narratives
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="linux-response" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+   </div>
+ </section>
+
+ <!-- LIFE-LEARNING EXPERIENCE (deck slide 12, option D — two side-by-side cards) -->
+ <section class="py-20 bg-squid-100 relative" aria-labelledby="life-learning-title">
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Beyond the Terminal</span>
+       <h2 id="life-learning-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         A life-learning experience
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="life-learning"></div>
+   </div>
+ </section>
+
+ <!-- FROM E-WASTE TO PROJECT ENGINES (deck slide 14) — full space-dark section, not a card -->
+ <section class="py-20 bg-ink-900 text-ink-100 relative overflow-hidden" aria-labelledby="ewaste-title">
+   <canvas class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">Circular Technology</span>
+       <h2 id="ewaste-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-100">
+         From e-waste to project engines
+       </h2>
+       <div class="w-16 h-1 bg-gold mx-auto rounded-full"></div>
+     </div>
+     <div id="ewaste-flow"></div>
+   </div>
+ </section>
+
+ <!-- PROJECT GALLERY: fanned photo stacks (deck slide 19 + own showcase projects) -->
+ <section class="py-20 bg-squid-100 relative" aria-labelledby="project-gallery-title">
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Show &amp; Tell</span>
+       <h2 id="project-gallery-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         Project Gallery
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+       <p class="text-lg text-balance opacity-85 pt-2">Hover a stack to fan it out, or click to see every photo.</p>
+     </div>
+     <div id="project-gallery"></div>
+   </div>
+ </section>
+
+ <!-- TESTIMONIALS: standalone carousel -->
+ <section class="py-20 bg-ink-50 relative" aria-labelledby="testimonials-title">
+   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Testimonials</span>
+       <h2 id="testimonials-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         In their words
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="testimonial-carousel"></div>
+   </div>
+ </section>
+
+ <!-- FOOTER -->
+ <footer id="contact" class="bg-ink-900 text-ink-100 transition-colors duration-500 border-t border-gold/20 py-12 relative z-10 overflow-hidden" aria-label="Footer Area" aria-labelledby="contact-title">
+   <!-- Twinkling star field, same engine as the hero sky -->
+   <canvas id="footer-space-canvas" class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
+
+   <!-- Whimsical Little Prince Planet SVG, top-left, near the heading -->
+   <div class="absolute top-6 left-6 sm:left-12 w-24 h-24 opacity-30 floating-star" aria-hidden="true">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-gold">
+       <circle cx="50" cy="50" r="30" />
+       <ellipse cx="50" cy="50" rx="45" ry="10" transform="rotate(-15 50 50)" fill="none" stroke="currentColor" stroke-width="3" />
+       <circle cx="50" cy="18" r="3" />
+       <circle cx="68" cy="72" r="2" />
+     </svg>
+   </div>
+
+   <!-- Second, smaller ringed planet, bottom-right, near the copyright line -->
+   <div class="absolute bottom-6 right-6 sm:right-12 w-20 h-20 opacity-20 floating-star" style="animation-delay: 0.8s;" aria-hidden="true">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-squid-300">
+       <circle cx="50" cy="50" r="22" />
+       <ellipse cx="50" cy="50" rx="42" ry="9" transform="rotate(20 50 50)" fill="none" stroke="currentColor" stroke-width="3" />
+       <circle cx="30" cy="30" r="2" />
+     </svg>
+   </div>
+
+   <!-- Third, tiny moon, upper-right -->
+   <div class="absolute top-6 right-10 w-10 h-10 opacity-25 floating-star hidden sm:block" style="animation-delay: 2.2s;" aria-hidden="true">
+     <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-ink-100">
+       <circle cx="50" cy="50" r="18" />
+     </svg>
+   </div>
+
+   <!-- Scattered sparkle accents -->
+   <span class="absolute top-10 left-1/4 text-gold text-lg opacity-70 floating-star" style="animation-delay: 0.4s;" aria-hidden="true">✦</span>
+   <span class="absolute bottom-16 left-16 text-ink-100 text-xs opacity-60 floating-star" style="animation-delay: 1.6s;" aria-hidden="true">✦</span>
+   <span class="absolute top-1/3 right-1/4 text-squid-300 text-sm opacity-50 floating-star" style="animation-delay: 2.8s;" aria-hidden="true">✦</span>
+   <span class="absolute bottom-8 right-1/3 text-gold text-xl opacity-40 floating-star hidden sm:inline" style="animation-delay: 1.1s;" aria-hidden="true">✦</span>
+
+   <!-- CONTACT SECTION -->
+   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 mb-10 border-b border-gold/20 text-center">
+     <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">Contact</span>
+     <h2 id="contact-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink-100 mt-2 mb-4">
+       Get in Touch
+     </h2>
+     <p class="text-sm md:text-base opacity-85 max-w-xl mx-auto mb-6">
+       Whether you'd like to donate hardware, offer a venue, or just say hi, <br/> drop us an email, and a volunteer sotong will be in touch within the week.
+     </p>
+     <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+       <a href="mailto:blursotonglinux@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl border-2 border-transparent bg-gold text-ink-900 hover:bg-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+         <i class="fa-solid fa-envelope mr-2"></i> BlurSotongLinux@gmail.com
+       </a>
+       <a href="partner.html" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl border-2 border-gold text-gold hover:bg-gold/10 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+         Partnership Inquiries <i class="fa-solid fa-arrow-up-right-from-square ml-3"></i>
+       </a>
+     </div>
+   </div>
+
+   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+     <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-gold/20">
+
+       <!-- Brand Bottom -->
+       <div class="text-center md:text-left">
+         <p class="font-bold tracking-wider text-xl font-mono text-gold">B L U R</p>
+         <p class="text-xs font-mono opacity-80 mt-1">Blending Linux Users &amp; Rookies • Singapore</p>
+       </div>
+
+       <!-- Simple nav repeat in footer -->
+       <nav class="flex items-center gap-6 text-sm font-mono" aria-label="Footer Navigation">
+         <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+         <a href="about.html" class="hover:text-gold transition-colors">About</a>
+         <a href="partner.html" class="hover:text-gold transition-colors">Partner</a>
+       </nav>
+
+     </div>
+
+     <!-- Copyright and Whimsical Note -->
+     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono opacity-70 gap-4">
+       <p>&copy; 2026 BLUR 🦑. Slow, Peer-Based, Passion-Led.</p>
+       <p class="italic text-center text-balance sm:text-right">
+         "All grown-ups were once children... <br>but only few of them remember it."
+       </p>
+     </div>
+
+   </div>
+ </footer>
+
+ <!-- Site content data, then site logic (order matters: main.js reads SITE_BUNDLE from content.js) -->
+ <script src="js/content.js"></script>
+ <script src="js/main.js"></script>
+</body>
+</html>

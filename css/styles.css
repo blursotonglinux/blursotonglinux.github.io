@@ -1,5 +1,10 @@
 /* Custom CSS for specialized effects & canvas stars */
 
+/* This site has its own deliberate light/dark sections (Tailwind utility classes only,
+   no `dark:` variants) — it does not want the browser/OS "force dark mode" repaint,
+   which recolors backgrounds but not our text, breaking contrast throughout. */
+:root { color-scheme: light; }
+
 /* Custom Focus Outline for WCAG AAA compliance (visible on both light & dark sections) */
 *:focus-visible {
   outline: 3px solid #3B4494;
@@ -20,8 +25,8 @@
   animation: float-star 4s ease-in-out infinite;
 }
 
-/* Star twinkling simulation background canvas, scoped to hero only */
-#space-canvas {
+/* Star twinkling simulation background canvas — shared by every full-space-background section */
+canvas.space-starfield {
   pointer-events: none;
   opacity: 0.65;
 }
@@ -59,3 +64,326 @@ section, footer {
   transform-origin: bottom center;
   animation: rose-sway 2.4s ease-in-out infinite;
 }
+
+/* ============================================================
+   NEW COMPONENTS (redesign, all pages)
+   ============================================================ */
+
+/* Standardized type scale for all custom (non-Tailwind-utility) component text below,
+   so micro-labels/badges/tags share one size, small mono captions share another, and
+   body copy inside custom components shares another — instead of many one-off values. */
+:root {
+  --fs-micro: 0.7rem;   /* eyebrow labels, badges, tags, chips, step numbers */
+  --fs-caption: 0.75rem; /* mono captions/counters/notes */
+  --fs-small: 0.85rem;   /* small body copy inside custom cards/panels */
+  --fs-body: 0.95rem;    /* standard body copy inside custom cards/panels */
+  --fs-subhead: 1.15rem; /* card sub-headings */
+  --fs-heading: 1.3rem;  /* small section-level headings inside dark shells (e.g. wheel detail panel) */
+}
+
+/* --- Why Linux? / Origin claim-reality split panel --- */
+.claim-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(59, 68, 148, 0.15);
+}
+.claim-panel .claim-side,
+.claim-panel .reality-side {
+  padding: 1.5rem 1.75rem;
+}
+.claim-panel .claim-side {
+  background: #f3f4f6; /* ink-100 */
+  border-right: 1px solid rgba(59, 68, 148, 0.12);
+}
+.claim-panel .reality-side {
+  background: #ffffff;
+}
+.claim-panel .panel-tag {
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.75;
+}
+.claim-panel .claim-text { margin-top: 0.5rem; font-size: var(--fs-body); white-space: pre-line; }
+.claim-panel .reality-text { margin-top: 0.5rem; font-size: var(--fs-subhead); font-weight: 600; line-height: 1.4; }
+@media (max-width: 640px) {
+  .claim-panel { grid-template-columns: 1fr; }
+  .claim-panel .claim-side { border-right: none; border-bottom: 1px solid rgba(59, 68, 148, 0.12); }
+}
+
+/* Origin section's "chips", shown as a centered pyramid — each line a size step
+   larger than the one above, ending on the widest/boldest statement.
+   squid-700 on ink-50: 8.33:1 contrast (WCAG AAA). */
+.chip-pyramid { text-align: center; margin-top: 1.75rem; }
+.chip-pyramid .cp-line { color: #3b4494; font-weight: 700; line-height: 1.3; margin: 0.15rem 0; }
+.chip-pyramid .cp-step0 { font-size: 1.05rem; }
+.chip-pyramid .cp-step1 { font-size: 1.3rem; }
+.chip-pyramid .cp-step2 { font-size: 1.55rem; }
+.chip-pyramid .cp-step3 { font-size: 1.8rem; }
+
+/* --- Societal context quote stack (About) --- */
+/* Each cause/effect pair is its own line group, with the effect on its own indented
+   line beneath the cause — this keeps a long cause or effect from wrapping into (or
+   mid-phrase within) the other, unlike the previous single shared line. */
+.quote-stack { display: flex; flex-direction: column; gap: 1.1rem; }
+.quote-stack-line { font-size: var(--fs-body); line-height: 1.5; text-align: left; margin: 0; }
+.quote-stack-line .arrow-out {
+  /* squid-700: 6.99:1 on squid-100 background — passes WCAG AA (and is near-AAA),
+     unlike gold which only reaches 1.36:1 on this background. */
+  display: block;
+  margin-top: 0.3rem;
+  padding-left: 1.5rem;
+  color: #3b4494;
+  font-weight: 700;
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  font-size: var(--fs-small);
+}
+
+/* --- Linux Response cards (tri-colour, About) --- */
+.response-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border-width: 2px;
+  border-style: solid;
+  margin-bottom: 1.25rem;
+}
+.response-card .rc-body { padding: 1.5rem 1.65rem; text-align: center; }
+/* Claim text stays at normal body size; only the arrow is enlarged for emphasis.
+   white-space: nowrap keeps each card's claim + arrow on a single line (the cards
+   are wide enough at --fs-body size), and a fixed min-height keeps the three
+   claim rows level with each other. */
+.response-card .rc-claim-row { margin-bottom: 1rem; text-align: center; min-height: 2.6rem; display: flex; align-items: center; justify-content: center; }
+.response-card .rc-claim { font-style: italic; font-weight: 700; font-size: var(--fs-body); }
+.response-card .rc-icon-wrap { display: flex; justify-content: center; align-items: center; margin-bottom: 0.6rem; font-size: 1.6rem; }
+.response-card .rc-icon-wrap .rc-icon { width: 2.1rem; height: 2.1rem; display: block; }
+.response-card .rc-icon-wrap .rc-icon svg { width: 100%; height: 100%; display: block; fill: currentColor; }
+.response-card .rc-new { font-weight: 700; font-size: var(--fs-subhead); margin-bottom: 0.6rem; }
+.response-card .rc-detail { font-size: var(--fs-small); line-height: 1.55; font-style: normal; text-align: left; opacity: 1; }
+/* Used by Home's Values cards, which reuse this component but show plain (non-italic, full-opacity)
+   body copy instead of the About Linux Response cards' italicized "detail" line. */
+.response-card .rc-detail.rc-detail-plain { font-style: normal; opacity: 1; text-align: left; }
+
+.response-card.rc-wheat { background: #f8f6d8; border-color: #545126; color: #2b2724; }
+.response-card.rc-wheat .rc-new { color: #545126; }
+.response-card.rc-wheat .rc-icon-wrap { color: #545126; }
+
+.response-card.rc-fox { background: #ffebc7; border-color: #7b3f00; color: #2b2724; }
+.response-card.rc-fox .rc-new { color: #7b3f00; }
+.response-card.rc-fox .rc-icon-wrap { color: #7b3f00; }
+
+.response-card.rc-rose { background: #fbe5e8; border-color: #8a2740; color: #2b2724; }
+.response-card.rc-rose .rc-new { color: #8a2740; }
+.response-card.rc-rose .rc-icon-wrap { color: #8a2740; }
+
+/* --- Life-learning two-card layout (About) --- */
+.life-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+@media (max-width: 640px) { .life-card-grid { grid-template-columns: 1fr; } }
+
+/* --- 4x Launchpoint wheel (homepage): sits directly on the section's own full-space
+   dark background (see #launchpoint in index.html) rather than in its own card. --- */
+.wheel-shell {
+  color: #fff;
+  position: relative;
+}
+.wheel-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2rem; align-items: center; position: relative; z-index: 2; }
+@media (max-width: 768px) { .wheel-grid { grid-template-columns: 1fr; } }
+.wheel-svg-box { display: flex; justify-content: center; }
+.wnode { cursor: pointer; }
+.wnode circle.wdot { fill: #fbbf24; transition: r 0.2s; }
+.wnode.active circle.wdot { fill: #fff; }
+.wnode text { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 12px; fill: #cfd4e6; font-weight: 700; transition: fill 0.2s; }
+.wnode.active text { fill: #fbbf24; }
+.wnode:hover text { fill: #fff; }
+.wheel-detail-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 1rem;
+  padding: 1.25rem 1.4rem;
+  min-height: 220px;
+}
+.wheel-detail-panel .wdp-tag { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); letter-spacing: 0.1em; text-transform: uppercase; color: #fbbf24; display: block; margin-bottom: 0.4rem; }
+.wheel-detail-panel h4 { margin: 0 0 0.6rem; font-size: var(--fs-heading); font-weight: 800; }
+.wheel-detail-panel p { font-size: var(--fs-small); line-height: 1.6; color: #d4d8e6; margin: 0 0 0.6rem; }
+.wheel-progression { display: flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.wheel-progression .wprog-pill { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); color: #9aa3c0; }
+.wheel-progression .wprog-pill .wprog-ic { width: 2rem; height: 2rem; border-radius: 50%; background: rgba(251, 191, 36, 0.12); display: flex; align-items: center; justify-content: center; font-size: var(--fs-small); color: #fbbf24; }
+.wheel-tagcloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; margin-top: 0.3rem; }
+.wheel-tagcloud span { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); background: rgba(185, 194, 242, 0.12); color: #b9c2f2; padding: 0.2rem 0.6rem; border-radius: 999px; }
+/* Static photo strip inside a wheel stage (Sidequests, Giving Back) — plain rounded
+   thumbnails in a responsive row, no interactivity, no lightbox. */
+.wheel-static-photos { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+.wheel-static-photos img {
+  width: calc(25% - 0.45rem);
+  min-width: 68px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  border: 2px solid rgba(251, 191, 36, 0.3);
+}
+@media (max-width: 480px) { .wheel-static-photos img { width: calc(50% - 0.3rem); } }
+.wheel-sq-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); font-weight: 700; color: #fbbf24; text-decoration: none; }
+.wheel-sq-link:hover { text-decoration: underline; }
+.wheel-progress-dots { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.9rem; position: relative; z-index: 2; }
+.wheel-progress-dots .wpd { width: 2.1rem; height: 0.25rem; border-radius: 0.15rem; background: rgba(255, 255, 255, 0.15); overflow: hidden; position: relative; }
+.wheel-progress-dots .wpd .wpd-fill { position: absolute; inset: 0; background: #fbbf24; width: 0%; }
+.wheel-autocycle-note { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); color: #8890ab; text-align: center; margin-top: 0.65rem; position: relative; z-index: 2; }
+
+/* --- Playground cards (homepage, below wheel): short photo strip, label is the focus --- */
+.playground-card { background: #fdfbf7; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+.playground-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.playground-card .pg-label { padding: 1rem 1rem 1.1rem; font-family: 'Atkinson Hyperlegible Mono', monospace; font-weight: 800; color: #3b4494; font-size: var(--fs-body); text-align: center; letter-spacing: 0.02em; }
+
+/* --- E-waste flow (About): full-bleed dark space section (background set by the
+   section itself, not this element), flowy staggered steps, wavy gold connector --- */
+.ewaste-flow {
+  padding: 1.5rem 0 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  position: relative;
+}
+@media (max-width: 768px) { .ewaste-flow { grid-template-columns: 1fr 1fr; padding: 1rem 0; } }
+.ewaste-line { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.ewaste-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+/* Alternate vertical offset for a flowier, non-grid feel, tracking the wavy connector line beneath */
+.ewaste-step { transform: translateY(-0.75rem); }
+.ewaste-step.es-down { transform: translateY(1.25rem); }
+@media (max-width: 768px) { .ewaste-step, .ewaste-step.es-down { transform: none; } }
+.ewaste-step img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 0.75rem; border: 2px solid rgba(251,191,36,0.35); box-shadow: 0 4px 14px rgba(0,0,0,0.35); }
+.ewaste-step .es-stepno { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); color: #0b0f19; background: #fbbf24; padding: 0.1rem 0.5rem; border-radius: 999px; letter-spacing: 0.1em; font-weight: 700; }
+.ewaste-step h4 { margin: 0.1rem 0 0; font-size: var(--fs-body); font-weight: 700; color: #fff; }
+.ewaste-step p { margin: 0; font-size: var(--fs-small); color: #d4d8e6; line-height: 1.5; }
+
+/* --- Project gallery: fanned photo stacks (About) --- */
+.gallery-fan-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+.gallery-fan-project { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; }
+.gallery-fan-stack { position: relative; width: 110px; height: 88px; }
+.gallery-fan-stack img {
+  position: absolute;
+  width: 96px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid #fdfbf7;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+.gallery-fan-stack .gf-s1 { transform: rotate(-6deg); z-index: 1; }
+.gallery-fan-stack .gf-s2 { transform: rotate(0deg); z-index: 2; }
+.gallery-fan-stack .gf-s3 { transform: rotate(6deg); z-index: 3; }
+.gallery-fan-project:hover .gf-s1 { transform: rotate(-14deg) translateX(-12px); }
+.gallery-fan-project:hover .gf-s2 { transform: rotate(0deg) translateY(-6px); }
+.gallery-fan-project:hover .gf-s3 { transform: rotate(12deg) translateX(12px); }
+/* Recolored border for the fan-stack when it sits on the wheel's dark shell instead of a light card
+   (it's not wrapped in .gallery-fan-project here, so it needs its own direct :hover rules). */
+.gallery-fan-stack.on-dark img { border-color: #0b0f19; }
+.gallery-fan-stack.on-dark:hover .gf-s1 { transform: rotate(-14deg) translateX(-12px); }
+.gallery-fan-stack.on-dark:hover .gf-s2 { transform: rotate(0deg) translateY(-6px); }
+.gallery-fan-stack.on-dark:hover .gf-s3 { transform: rotate(12deg) translateX(12px); }
+.gallery-fan-label { font-size: var(--fs-small); font-weight: 700; color: #3b4494; text-align: center; }
+.gallery-fan-count { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); color: #5b6472; }
+
+/* --- Testimonial carousel (About): plain text on the section background, no card --- */
+.carousel-shell { text-align: center; position: relative; padding: 0.5rem 3.5rem; }
+@media (max-width: 640px) { .carousel-shell { padding: 0.5rem 2.75rem; } }
+.carousel-quote { font-size: 1.35rem; line-height: 1.55; max-width: 620px; margin: 0 auto 1rem; font-style: italic; font-weight: 600; color: #2b2724; min-height: 5.5rem; display: flex; align-items: center; justify-content: center; text-wrap: balance; }
+.carousel-who { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); color: #3b4494; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.carousel-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; }
+.carousel-dots .cd { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(59,68,148,0.25); cursor: pointer; border: none; padding: 0; }
+.carousel-dots .cd.active { background: #3b4494; }
+.carousel-nav { position: absolute; top: 2.2rem; transform: none; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: rgba(59,68,148,0.08); color: #3b4494; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: var(--fs-body); border: 1px solid rgba(59,68,148,0.2); }
+.carousel-nav:hover { background: rgba(59,68,148,0.16); }
+.carousel-nav.cn-prev { left: 0; } .carousel-nav.cn-next { right: 0; }
+@media (max-width: 480px) { .carousel-nav { width: 1.9rem; height: 1.9rem; font-size: 0.9rem; } }
+
+/* --- Partner: team chips (Partner page) --- */
+.team-split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; }
+.team-split-chips { text-align: center; min-width: 0; }
+.team-split-chips .flex { justify-content: center; min-width: 0; }
+@media (max-width: 768px) { .team-split { grid-template-columns: 1fr; gap: 1.5rem; } }
+.team-role-chip { background: #0b0f19; color: #fff; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); padding: 0.45rem 0.85rem; border-radius: 999px; display: inline-block; }
+.team-root-chip { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); background: #e3e7f8; color: #3b4494; padding: 0.35rem 0.75rem; border-radius: 999px; font-weight: 600; display: inline-block; }
+
+/* --- Partner: immediate needs cards (equal height, responsive row) — same visual
+   treatment as About's Life-Learning cards (bg-ink-50 card, squid-700 heading),
+   with an added status badge (Immediate/Open/Ongoing) above the title. --- */
+.needs-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+@media (max-width: 768px) { .needs-row { grid-template-columns: 1fr; } }
+.need-card { background: #fdfbf7; border: 1px solid rgba(59,68,148,0.15); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; height: 100%; }
+.need-card .nc-badge { display: inline-block; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem; align-self: flex-start; }
+.nc-badge.immediate { background: #fde3d0; color: #7b3f00; }
+.nc-badge.open { background: #e3e7f8; color: #3b4494; }
+.nc-badge.ongoing { background: #f8f6d8; color: #545126; }
+.need-card h4 { margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #3b4494; }
+.need-card p { margin: 0; font-size: 0.875rem; line-height: 1.625; color: #2b2724; flex: 1; }
+
+/* --- Partner: offer timeline (scarcity-ordered) --- */
+.offer-timeline { position: relative; padding-left: 1.6rem; }
+.offer-timeline::before { content: ''; position: absolute; left: 0.45rem; top: 0.4rem; bottom: 0.4rem; width: 2px; background: rgba(59,68,148,0.15); }
+.offer-timeline .ot-item { position: relative; margin-bottom: 1.1rem; }
+.offer-timeline .ot-item::before { content: ''; position: absolute; left: -1.6rem; top: 0.2rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: #3b4494; border: 3px solid #fdfbf7; }
+.offer-timeline .ot-item h4 { margin: 0 0 0.25rem; font-size: var(--fs-body); }
+.offer-timeline .ot-item p { margin: 0; font-size: var(--fs-small); color: #5b5650; line-height: 1.5; }
+
+/* --- Shared photo lightbox (Project Gallery + Sidequests wheel gallery) --- */
+body.lightbox-locked { overflow: hidden; }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: #05070c;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-figure { max-width: min(90vw, 900px); max-height: 85vh; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.lightbox-img { max-width: 100%; max-height: 72vh; object-fit: contain; border-radius: 0.75rem; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.lightbox-caption { color: #fff; font-weight: 700; font-size: var(--fs-body); text-align: center; }
+.lightbox-counter { position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%); font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: var(--fs-caption); color: #aab0c8; }
+.lightbox-close {
+  position: absolute; top: 1rem; right: 1.25rem;
+  width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+  font-size: 1.5rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.18); }
+.lightbox-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 3rem; height: 3rem; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+  font-size: 1.75rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.18); }
+.lightbox-nav.lb-prev { left: 1rem; }
+.lightbox-nav.lb-next { right: 1rem; }
+@media (max-width: 640px) {
+  .lightbox-nav { width: 2.25rem; height: 2.25rem; font-size: 1.3rem; }
+  .lightbox-close { width: 2.1rem; height: 2.1rem; font-size: 1.2rem; }
+}
+/* Clickable gallery entry points get a visible affordance */
+.gallery-fan-project, .gallery-fan-stack[role="button"] { cursor: pointer; }
+.gallery-fan-project:focus-visible, .gallery-fan-stack[role="button"]:focus-visible { outline: 3px solid #3B4494; outline-offset: 3px; border-radius: 0.5rem; }
+.gallery-fan-count { display: inline-flex; align-items: center; gap: 0.3rem; }
+.gallery-fan-count .fa-expand { font-size: var(--fs-micro); }
+
+/* --- Partner: BLUR at a Glance --- */
+.glance-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+@media (max-width: 640px) { .glance-row { grid-template-columns: 1fr; } }
+.glance-tile { background: #fdfbf7; border: 1px solid rgba(59,68,148,0.15); border-radius: 0.9rem; padding: 1.2rem; text-align: center; }
+.glance-tile .gt-num { font-family: 'Atkinson Hyperlegible Mono', monospace; font-weight: 800; font-size: 1.9rem; color: #3b4494; line-height: 1; }
+.glance-tile .gt-label { font-size: var(--fs-small); color: #2b2724; font-weight: 700; margin-top: 0.4rem; }
+.glance-tile .gt-expl { font-size: var(--fs-caption); color: #5b6472; margin-top: 0.4rem; line-height: 1.5; }

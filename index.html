@@ -27,7 +27,7 @@
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
      <!-- Brand Logo / Identity -->
-     <a href="#" class="flex items-center space-x-3 group" aria-label="BLUR Home">
+     <a href="index.html" class="flex items-center space-x-3 group" aria-label="BLUR Home">
        <div class="relative w-9 h-9 flex items-center justify-center bg-squid-700 rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105">
          <img src="https://lh3.googleusercontent.com/d/1HeaZlw2oTCaRj4ws90VXnMnXO6NxQ99i" alt="BLUR sotong logo" class="w-3/4 h-3/4 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
          <i class="fa-brands fa-linux text-ink-50 text-lg" style="display:none; align-items:center; justify-content:center;"></i>
@@ -39,21 +39,13 @@
        </div>
      </a>
 
-     <!-- Desktop Navigation Links -->
-     <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
-       <a href="#about" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Values</a>
-       <a href="#partnerships" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Partner</a>
-       <a href="#sessions" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Weekly</a>
-       <a href="#join" class="hover:text-squid-700 font-medium tracking-wide transition-colors">How to Join</a>
-       <a href="#faq" class="hover:text-squid-700 font-medium tracking-wide transition-colors">FAQ</a>
-       <a href="#contact" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Contact</a>
-     </nav>
-
-     <!-- Join CTA & Mobile Menu -->
-     <div class="flex items-center space-x-4">
-       <a href="#join" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-bold font-mono uppercase tracking-wider rounded-lg bg-squid-700 text-ink-50 hover:bg-squid-700/90 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
-         Join Us
-       </a>
+     <!-- Desktop Navigation Links + Mobile Menu Toggle, right-aligned as one group -->
+     <div class="flex items-center space-x-8">
+       <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+         <a href="index.html" class="text-squid-700 font-bold tracking-wide transition-colors">Home</a>
+         <a href="about.html" class="hover:text-squid-700 font-medium tracking-wide transition-colors">About</a>
+         <a href="partner.html" class="hover:text-squid-700 font-medium tracking-wide transition-colors">Partner</a>
+       </nav>
 
        <!-- Mobile Menu Toggle Button -->
        <button id="mobile-menu-btn" class="p-2 md:hidden text-squid-700" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
@@ -64,21 +56,18 @@
 
    <!-- Mobile Navigation Drawer -->
    <div id="mobile-menu" class="hidden md:hidden bg-squid-100 border-b border-squid-700/20 px-4 py-4 space-y-3">
-     <a href="#about" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Values</a>
-     <a href="#partnerships" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Partner</a>
-     <a href="#sessions" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Weekly</a>
-     <a href="#join" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">How to Join</a>
-     <a href="#faq" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">FAQ</a>
-     <a href="#contact" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Contact</a>
+     <a href="index.html" class="block py-2 text-base font-bold text-squid-700 transition-colors">Home</a>
+     <a href="about.html" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">About</a>
+     <a href="partner.html" class="block py-2 text-base font-medium hover:text-squid-700 transition-colors">Partner</a>
      <a href="#join" class="block text-center py-2.5 mt-4 text-sm font-bold font-mono uppercase tracking-wider rounded bg-squid-700 text-ink-50">
        Join Us
      </a>
    </div>
  </header>
 
- <!-- HERO SECTION -->
+ <!-- HERO SECTION (unchanged) -->
  <section id="hero-section" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden z-10 bg-ink-900 text-ink-100" aria-labelledby="hero-title">
-   <canvas id="space-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+   <canvas id="space-canvas" class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
 
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -111,7 +100,7 @@
            <a href="#join" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl bg-gold text-ink-900 hover:bg-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
              Start Your Sidequest <i class="fa-solid fa-rocket ml-2"></i>
            </a>
-           <a href="#about" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl border border-squid-300/40 text-squid-300 hover:bg-squid-300/10 transition-all">
+           <a href="about.html" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono uppercase tracking-wider rounded-xl border border-squid-300/40 text-squid-300 hover:bg-squid-300/10 transition-all">
              Our Values <i class="fa-solid fa-book-open ml-2"></i>
            </a>
          </div>
@@ -191,8 +180,22 @@
    </div>
  </section>
 
- <!-- VALUES / ABOUT SECTION -->
- <section id="about" class="py-20 bg-squid-100 transition-colors duration-500 relative" aria-labelledby="about-title">
+ <!-- WHY LINUX? SPLIT PANEL (new — Slide 7) -->
+ <section id="why-linux" class="py-20 bg-squid-100 relative" aria-labelledby="why-linux-title">
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-squid-700 uppercase">Why Linux?</span>
+       <h2 id="why-linux-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
+         Linux is yours, truly.
+       </h2>
+       <div class="w-16 h-1 bg-squid-700 mx-auto rounded-full"></div>
+     </div>
+     <div id="why-linux-panel"></div>
+   </div>
+ </section>
+
+ <!-- VALUES / ABOUT SECTION (unchanged copy; CTA now points to about.html) -->
+ <section id="about" class="py-20 bg-ink-50 transition-colors duration-500 relative" aria-labelledby="about-title">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
      <!-- Section Header -->
@@ -214,41 +217,46 @@
      <div class="p-6 md:p-8 rounded-2xl border-2 border-dashed border-squid-700/40 bg-squid-700/5 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
        <div class="text-4xl text-center md:text-left">🦑</div>
        <div class="space-y-2 flex-1 text-left md:text-left">
-         <h4 class="font-bold font-mono text-squid-700">A Small Note on the Name:</h4>
+         <h4 class="font-bold font-mono text-squid-700">We are BLUR like sotong</h4>
          <p class="text-sm text-pretty opacity-90 leading-relaxed">
-           Leaning into the Singlish phrase<strong class="font-mono text-squid-700"> blur like sotong</strong>, the name <strong class="font-mono text-squid-700">BLUR</strong> playfully embraces that initial feeling of absolute cluelessness when a rookie first steps into the Linux playground. <br> Behind the tongue-in-cheek title, however, lies a genuine mission to introducing youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.
+           The name <strong class="font-mono text-squid-700">BLUR</strong> playfully embraces that initial feeling of absolute cluelessness when a rookie first steps into the Linux playground.
          </p>
        </div>
+     </div>
+
+     <div class="text-center mt-10">
+       <a href="about.html" class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold font-mono uppercase tracking-wider rounded-xl border border-squid-700 text-squid-700 hover:bg-squid-700/10 transition-all">
+         Read About Our Values <i class="fa-solid fa-arrow-right ml-2"></i>
+       </a>
      </div>
 
    </div>
  </section>
 
- <!-- COLLABORATIONS & PARTNERSHIPS SECTION -->
- <section id="partnerships" class="py-20 bg-ink-50 relative overflow-hidden" aria-labelledby="partnerships-title">
-   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-       <!-- Left Side: Graphic & Copy -->
-       <div class="lg:col-span-5 space-y-6">
-         <span class="text-xs font-bold tracking-widest font-mono text-rose-800 uppercase">Partner</span>
-         <h2 id="partnerships-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-700">
-           Partner With Us
-         </h2>
-         <p class="text-lg opacity-90 leading-relaxed">
-           We're free and non-commercial, running entirely on volunteer time and generous partnerships. To keep our sessions going, we look for partners who share our equitable and whimsical view of technology.
-         </p>
-       </div>
-
-       <!-- Right Side: Specific Partner Cards (populated from SITE_BUNDLE.partnerships, see js/content.js) -->
-       <div id="partnerships-container" class="lg:col-span-7 space-y-6"></div>
-
+ <!-- PROGRAMME STRUCTURE: 4x LAUNCHPOINT WHEEL (new — Slides 15-18) — full space-dark section, not a card -->
+ <section id="launchpoint" class="py-20 bg-ink-900 text-ink-100 relative overflow-hidden" aria-labelledby="launchpoint-title">
+   <canvas id="launchpoint-space-canvas" class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+     <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+       <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">What We Do</span>
+       <h2 id="launchpoint-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink-100">
+         Programme Structure: <span id="launchpoint-title" class="text-gold font-mono"><br>the 4x Launchpoint</span>
+       </h2>
+       <div class="w-16 h-1 bg-gold mx-auto rounded-full"></div>
+       <p class="text-lg text-balance opacity-85 pt-2">Click a stage of the loop to see how it plays out.</p>
      </div>
+
+     <div id="launchpoint-wheel"></div>
+
+     <div class="mt-14 text-center max-w-2xl mx-auto mb-8 space-y-2">
+       <span class="text-xs font-bold tracking-widest font-mono text-gold uppercase">The Open-Source Playground</span>
+       <h3 class="text-2xl font-extrabold tracking-tight text-ink-100">Where sidequests come alive</h3>
+     </div>
+     <div id="playground-cards" class="grid grid-cols-1 sm:grid-cols-3 gap-6"></div>
    </div>
  </section>
 
- <!-- CALENDAR & SESSION SCHEDULE SECTION -->
+ <!-- CALENDAR & SESSION SCHEDULE SECTION (unchanged, incl. live Side Quests sheet) -->
  <section id="sessions" class="py-20 bg-squid-100 transition-colors duration-500 relative" aria-labelledby="sessions-title">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -264,75 +272,6 @@
      </div>
 
      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-       <!-- Interactive Date Cards -->
-       <!--
-       <div class="lg:col-span-6 space-y-4">
-         <h3 class="text-xl font-bold font-mono text-squid-700 mb-6 flex items-center gap-2">
-           <i class="fa-regular fa-map"></i> Upcoming Introduction Round
-         </h3>
-
-         Date Item 1
-         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
-           <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
-               <span class="text-xs uppercase">Aug</span>
-               <span class="text-lg">08</span>
-             </div>
-             <div>
-               <h4 class="font-bold text-sm">Session 01</h4>
-               <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
-             </div>
-           </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
-         </div>
-
-         Date Item 2
-         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
-           <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
-               <span class="text-xs uppercase">Aug</span>
-               <span class="text-lg">15</span>
-             </div>
-             <div>
-               <h4 class="font-bold text-sm">Session 02</h4>
-               <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
-             </div>
-           </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
-         </div>
-
-         Date Item 3
-         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
-           <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
-               <span class="text-xs uppercase">Aug</span>
-               <span class="text-lg">22</span>
-             </div>
-             <div>
-               <h4 class="font-bold text-sm">Session 03</h4>
-               <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
-             </div>
-           </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
-         </div>
-
-         Date Item 4
-         <div class="p-4 rounded-xl bg-ink-50 border border-squid-700/10 flex items-center justify-between shadow-sm">
-           <div class="flex items-center space-x-4">
-             <div class="w-12 h-12 rounded-lg bg-squid-700 text-ink-50 flex flex-col items-center justify-center font-mono font-bold leading-none shrink-0">
-               <span class="text-xs uppercase">Aug</span>
-               <span class="text-lg">29</span>
-             </div>
-             <div>
-               <h4 class="font-bold text-sm">Session 04</h4>
-               <p class="text-xs opacity-75">Saturdays • 5.30PM - 7.30PM</p>
-             </div>
-           </div>
-           <span class="text-xs font-mono opacity-80 bg-squid-700/5 px-2 py-1 rounded">VIVITA</span>
-         </div>
-       </div>
-       -->
 
        <!-- Interest Form for Future Introduction Rounds -->
        <div class="lg:col-span-6 space-y-4">
@@ -372,7 +311,7 @@
 
      </div>
 
-     <!-- SideQuests Google Sheet API -->
+     <!-- SideQuests Google Sheet API (live, unchanged) -->
      <div class="mt-12 bg-ink-50 rounded-2xl border border-squid-700/20 shadow-sm p-6 md:p-8">
        <h3 class="text-xl font-bold font-mono text-squid-700 mb-2 flex items-center gap-2">
          BLUR like Sotong Side Quests
@@ -386,7 +325,7 @@
    </div>
  </section>
 
- <!-- JOIN US / CTA REGISTRATION SECTION -->
+ <!-- JOIN US / CTA REGISTRATION SECTION (unchanged copy, now with 2 CTAs) -->
  <section id="join" class="py-20 bg-ink-50 relative overflow-hidden z-10" aria-labelledby="join-title">
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
 
@@ -419,13 +358,18 @@
      </div>
 
      <!-- Main Anchor for dynamic script scrolls & Form CTA -->
-     <div id="contact-anchor" class="pt-4">
+     <div id="contact-anchor" class="pt-4 space-y-4">
        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXPmCVJ0kaeB0MwZbh-hGdmT4rVcg_8iIqoFtTy6S2-vBSSw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold font-mono uppercase tracking-wider rounded-2xl bg-squid-700 text-ink-50 hover:bg-squid-700/90 transition-all shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 duration-200">
          Register your interest <i class="fa-solid fa-arrow-up-right-from-square ml-3"></i>
        </a>
-       <p class="text-xs font-mono mt-3 opacity-75 text-balance">
+       <p class="text-xs font-mono opacity-75 text-balance">
          A volunteer sotong will ping you when we open the next quarter's Linux Introduction round (typically a month before the sessions begin).
        </p>
+       <div>
+         <a href="partner.html" class="inline-flex items-center justify-center text-sm font-bold font-mono uppercase tracking-wider text-squid-900 hover:underline">
+           Interested in supporting? Visit our Partner page <i class="fa-solid fa-arrow-right ml-2"></i>
+         </a>
+       </div>
      </div>
 
    </div>
@@ -458,7 +402,7 @@
  <!-- FOOTER -->
  <footer id="contact" class="bg-ink-900 text-ink-100 transition-colors duration-500 border-t border-gold/20 py-12 relative z-10 overflow-hidden" aria-label="Footer Area" aria-labelledby="contact-title">
    <!-- Twinkling star field, same engine as the hero sky -->
-   <canvas id="footer-space-canvas" class="absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
+   <canvas id="footer-space-canvas" class="space-starfield absolute inset-0 w-full h-full z-0" aria-hidden="true"></canvas>
 
    <!-- Whimsical Little Prince Planet SVG, top-left, near the heading -->
    <div class="absolute top-6 left-6 sm:left-12 w-24 h-24 opacity-30 floating-star" aria-hidden="true">
@@ -505,8 +449,8 @@
        <a href="mailto:blursotonglinux@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl border-2 border-transparent bg-gold text-ink-900 hover:bg-gold/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
          <i class="fa-solid fa-envelope mr-2"></i> BlurSotongLinux@gmail.com
        </a>
-       <a href="https://docs.google.com/forms/d/e/1FAIpQLScXYGTVCqEn9mMQx5TI7Bd2s5wY1PTCKSUIYEErqKjF4J0_TA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl border-2 border-gold text-gold hover:bg-gold/10 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
-         </i> Partnership Inquiries <i class="fa-solid fa-arrow-up-right-from-square ml-3"></i>
+       <a href="partner.html" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold font-mono tracking-wider rounded-xl border-2 border-gold text-gold hover:bg-gold/10 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+         Partnership Inquiries <i class="fa-solid fa-arrow-up-right-from-square ml-3"></i>
        </a>
      </div>
    </div>
@@ -520,6 +464,13 @@
          <p class="font-bold tracking-wider text-xl font-mono text-gold">B L U R</p>
          <p class="text-xs font-mono opacity-80 mt-1">Blending Linux Users &amp; Rookies • Singapore</p>
        </div>
+
+       <!-- Simple nav repeat in footer -->
+       <nav class="flex items-center gap-6 text-sm font-mono" aria-label="Footer Navigation">
+         <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+         <a href="about.html" class="hover:text-gold transition-colors">About</a>
+         <a href="partner.html" class="hover:text-gold transition-colors">Partner</a>
+       </nav>
 
      </div>
 
