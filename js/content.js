@@ -11,8 +11,8 @@ var SITE_BUNDLE = {
     hero_description: 'Linux powers most of the world\'s servers and everyday electronics, yet it goes largely unnoticed. \n\nBLUR is a free, volunteer-led weekly programme based in Singapore that introduces youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.'
   },
 
-  // colorway matches the same tri-colour treatment as About's Linux Response cards
-  // (rc-wheat / rc-fox / rc-rose — tint background + deep-colour border, WCAG AAA verified).
+  // colorway = accent for the shared card anatomy (c-wheat / c-fox / c-rose): colour shows only on
+  // the icon and label; the card stays white. Title "NN. Name" renders as label "Value NN" + heading "Name".
   valuesCards: [
     { title: '01. Slow', desc: 'In a world of AI paradoxes where knowledge becomes more democratised yet facile, we navigate to safer waters - our learning is slow. While the world chases trends, we look under the hood and look for keystones.', icon: 'fa-hourglass-half', color: 'wheat-900', colorway: 'wheat' },
     { title: '02. Peer-Based', desc: 'Designed with the aim to empower learners to discover and open doors, teach others and contribute back to open-source. Here, members are supported by a community of peers and facilitators, encouraged to share their learning journeys and continue growing together.', icon: 'fa-people-carry-box', color: 'fox-900', colorway: 'fox' },
@@ -161,7 +161,7 @@ var SITE_BUNDLE = {
     { cause: "'Magical' AI mysteriously 'thinks' for you", effect: 'Outsourced critical thinking.' }
   ],
 
-  // Linux Breaks Those Narratives — tri-colour cards (deck slide 11)
+  // Linux Breaks Those Narratives — cards labelled Myth 01-03 in wheat/fox/rose accents (deck slide 11)
   // icon values map to hand-built SVGs in main.js's ICONS table (layer-group / meteor-up / seedling)
   linuxResponse: [
     {

@@ -6,14 +6,17 @@ tailwind.config = {
       fontFamily: {
         sans: ['Jost', 'sans-serif'],
         mono: ['"Atkinson Hyperlegible Mono"', 'monospace'],
-        serif: ["Libertinus Serif",'serif'],
       },
       colors: {
-        // Standalone bright utility accent
+        // Standalone bright utility accent — SPACE-DARK sections only (1.62:1 on ink-50: never text on light).
         gold: '#fbbf24',
 
+        // Role tokens (design system card rework)
+        'surface-card': '#ffffff',             // every card/panel surface on light sections
+        hairline: 'rgba(59, 68, 148, 0.15)',   // squid-700 @ 15%: card, panel, tile borders
+
         // 1. SQUID SCALE (Indigo/Blue)
-        // Steps 600-950 pass WCAG AAA (>= 7:1) on white/50 backgrounds.
+        // On ink-50: 600 = 4.84:1 (AA only); 700-950 pass AAA (>= 7:1).
         squid: {
           50: '#f0f2fc',  // Lightest tint
           100: '#e3e7f8', // Original: lavender
@@ -21,7 +24,7 @@ tailwind.config = {
           300: '#b9c2f2', // Original: space.squid
           400: '#a9b4ec', // Original: squid
           500: '#7d8de0',
-          600: '#5466d1', // Valid AAA text step on light surfaces
+          600: '#5466d1', // Lightest text step on light surfaces — AA only (4.84:1 on ink-50)
           700: '#3b4494', // Original: squid-deep (Perfect dark UI accent anchor)
           800: '#2a306b',
           900: '#1a1f47',

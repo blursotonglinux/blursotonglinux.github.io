@@ -222,7 +222,7 @@
       var question = escapeHtml(faqList[i].question);
       var answer = escapeHtml(faqList[i].answer).replace(/\n/g, '<br>');
 
-      html += '<div class="rounded-2xl border border-squid-700/20 bg-ink-50 shadow-sm overflow-hidden">';
+      html += '<div class="rounded-2xl border border-hairline bg-surface-card shadow-sm overflow-hidden">';
       html += '  <h3 class="m-0">';
       html += '    <button type="button" id="faq-question-' + i + '" aria-expanded="false" aria-controls="faq-answer-' + i + '" class="faq-toggle w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-bold font-mono text-squid-700">';
       html += '      <span>' + question + '</span>';
@@ -288,15 +288,17 @@
       var valuesHtml = '';
       for (var i = 0; i < bundle.valuesCards.length; i++) {
         var v = bundle.valuesCards[i];
-        // Same tint-background + deep-colour-border treatment as About's Linux Response
-        // cards (.response-card.rc-*), so the two sections read as one visual system.
-        valuesHtml += '<div class="response-card rc-' + escapeHtml(v.colorway) + '">';
-        valuesHtml += '  <div class="rc-body">';
-        valuesHtml += '    <div class="rc-icon-wrap"><i class="fa-solid ' + escapeHtml(v.icon) + ' text-2xl"></i></div>';
-        valuesHtml += '    <h3 class="rc-new">' + escapeHtml(v.title) + '</h3>';
-        valuesHtml += '    <p class="rc-detail rc-detail-plain">' + escapeHtml(v.desc) + '</p>';
-        valuesHtml += '  </div>';
-        valuesHtml += '</div>';
+        // Shared card anatomy (ResponseCard without the quote), same colourways as About's
+        // Linux Response cards. "01. Slow" splits into label "Value 01" + heading "Slow".
+        var vMatch = /^(\d+)\.\s*(.*)$/.exec(v.title);
+        var vLabel = vMatch ? 'Value ' + vMatch[1] : '';
+        var vHeading = vMatch ? vMatch[2] : v.title;
+        valuesHtml += '<article class="card c-' + escapeHtml(v.colorway) + '">';
+        valuesHtml += '  <div class="card-icon"><i class="fa-solid ' + escapeHtml(v.icon) + '" aria-hidden="true"></i></div>';
+        if (vLabel) valuesHtml += '  <p class="card-label">' + escapeHtml(vLabel) + '</p>';
+        valuesHtml += '  <h3 class="card-heading">' + escapeHtml(vHeading) + '</h3>';
+        valuesHtml += '  <p class="card-body">' + escapeHtml(v.desc) + '</p>';
+        valuesHtml += '</article>';
       }
       valuesGridContainer.innerHTML = valuesHtml;
     }
@@ -349,7 +351,7 @@
         // Mobile: one card per quest (no horizontal scrolling/squeezed columns)
         let cardsHtml = '<div class="md:hidden space-y-4">';
         body.forEach(function (cols) {
-          cardsHtml += '<div class="p-5 rounded-2xl bg-squid-100 border border-squid-700/20 shadow-sm space-y-3">';
+          cardsHtml += '<div class="p-6 rounded-2xl bg-surface-card border border-hairline space-y-3">';
           cols.forEach(function (cell, idx) {
             if (!cell) return;
             if (idx === 0) {
@@ -464,8 +466,9 @@
 
     var claimText = escapeHtml(data.claim).replace(/\n/g, '<br>');
     var html = '<div class="claim-panel">';
-    html += '  <div class="claim-side"><span class="panel-tag">' + escapeHtml(data.claimTag) + '</span><p class="claim-text">' + claimText + '</p></div>';
-    html += '  <div class="reality-side"><span class="panel-tag" style="color:#3b4494; opacity:1;">' + escapeHtml(data.realityTag) + '</span><p class="reality-text">' + data.reality + '</p></div>'; // reality allows inline <u> markup — opacity:1 override keeps this tag's contrast at 8.6:1 (WCAG AAA) instead of the class default 0.75 dimming, which only cleared 4.46:1 (fails AA) at squid-700
+    html += '  <div class="cp-side cp-claim"><p class="card-label">' + escapeHtml(data.claimTag) + '</p><p class="claim-text">' + claimText + '</p></div>';
+    html += '  <div class="cp-joint" aria-hidden="true"><span class="cp-line"></span><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="8"/><ellipse cx="20" cy="20" rx="17" ry="5" transform="rotate(-15 20 20)"/></svg><span class="cp-line"></span></div>';
+    html += '  <div class="cp-side cp-reality"><p class="card-label">' + escapeHtml(data.realityTag) + '</p><p class="reality-text">' + data.reality + '</p></div>'; // reality allows inline <b>/<u> markup
     html += '</div>';
 
     // Origin panel carries extra "chips", shown as a centered pyramid stack —
@@ -690,14 +693,14 @@
     var html = '';
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
-      html += '<div class="response-card rc-' + escapeHtml(it.colorway) + '">';
-      html += '  <div class="rc-body">';
-      html += '    <div class="rc-claim-row"><span class="rc-claim">' + escapeHtml(it.claim) + '</span></div>';
-      html += '    <div class="rc-icon-wrap"><span class="rc-icon">' + (ICONS[it.icon] || '') + '</span></div>';
-      html += '    <div class="rc-new">' + escapeHtml(it.response) + '</div>';
-      html += '    <div class="rc-detail">' + escapeHtml(it.detail) + '</div>';
-      html += '  </div>';
-      html += '</div>';
+      var mythNo = (i + 1 < 10 ? '0' : '') + (i + 1);
+      html += '<article class="card c-' + escapeHtml(it.colorway) + '">';
+      html += '  <div class="card-icon" aria-hidden="true">' + (ICONS[it.icon] || '') + '</div>';
+      html += '  <p class="card-label">Myth ' + mythNo + '</p>';
+      html += '  <p class="card-quote">' + escapeHtml(it.claim) + '</p>';
+      html += '  <h3 class="card-heading">' + escapeHtml(it.response) + '</h3>';
+      html += '  <p class="card-body">' + escapeHtml(it.detail) + '</p>';
+      html += '</article>';
     }
     mount.innerHTML = html;
   }
@@ -708,16 +711,16 @@
     var html = '<div class="life-card-grid">';
     for (var i = 0; i < cards.length; i++) {
       var c = cards[i];
-      html += '<div class="p-6 rounded-2xl bg-ink-50 border border-squid-700/15">';
-      html += '  <h4 class="text-base font-bold text-squid-700 mb-3">' + escapeHtml(c.title) + '</h4>';
+      html += '<div class="card">';
+      html += '  <h3 class="card-heading">' + escapeHtml(c.title) + '</h3>';
       if (c.bullets) {
-        html += '  <ul class="text-sm leading-relaxed list-disc pl-5 space-y-1.5">';
+        html += '  <ul class="card-body list-disc pl-5 space-y-1.5">';
         for (var b = 0; b < c.bullets.length; b++) {
           html += '<li>' + c.bullets[b] + '</li>'; // bullets contain trusted inline <b> markup from content.js
         }
         html += '  </ul>';
       } else if (c.body) {
-        html += '  <p class="text-sm leading-relaxed">' + c.body + '</p>'; // body contains trusted inline <b> markup from content.js
+        html += '  <p class="card-body">' + c.body + '</p>'; // body contains trusted inline <b> markup from content.js
       }
       html += '</div>';
     }
@@ -746,7 +749,7 @@
       }
     }
     var html = '<div class="ewaste-flow">';
-    html += '  <svg class="ewaste-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="' + pathD + '" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/></svg>';
+    html += '  <svg class="ewaste-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="' + pathD + '" fill="none" style="stroke: var(--gold)" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/></svg>';
     for (var i = 0; i < steps.length; i++) {
       var s = steps[i];
       html += '<div class="ewaste-step' + (i % 2 === 1 ? ' es-down' : '') + '">';
@@ -895,11 +898,11 @@
     var html = '<div class="needs-row">';
     for (var i = 0; i < needs.length; i++) {
       var n = needs[i];
-      html += '<div class="need-card">';
-      html += '  <span class="nc-badge ' + escapeHtml(n.badgeStyle) + '">' + escapeHtml(n.badge) + '</span>';
-      html += '  <h4>' + escapeHtml(n.title) + '</h4>';
-      html += '  <p>' + escapeHtml(n.desc) + '</p>';
-      html += '</div>';
+      html += '<article class="card c-' + escapeHtml(n.badgeStyle) + '">';
+      html += '  <p class="card-label card-status">' + escapeHtml(n.badge) + '</p>';
+      html += '  <h3 class="card-heading">' + escapeHtml(n.title) + '</h3>';
+      html += '  <p class="card-body">' + escapeHtml(n.desc) + '</p>';
+      html += '</article>';
     }
     html += '</div>';
     mount.innerHTML = html;
@@ -922,7 +925,7 @@
     var html = '<div class="glance-row">';
     for (var i = 0; i < tiles.length; i++) {
       var t = tiles[i];
-      html += '<div class="glance-tile"><div class="gt-num">' + escapeHtml(t.num) + '</div><div class="gt-label">' + escapeHtml(t.label) + '</div><div class="gt-expl">' + escapeHtml(t.expl) + '</div></div>';
+      html += '<article class="card c-squid"><p class="card-label">' + escapeHtml(t.label) + '</p><p class="card-stat">' + escapeHtml(t.num) + '</p><p class="card-body">' + escapeHtml(t.expl) + '</p></article>';
     }
     html += '</div>';
     mount.innerHTML = html;
