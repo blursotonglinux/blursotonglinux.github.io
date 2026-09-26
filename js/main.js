@@ -222,14 +222,14 @@
       var question = escapeHtml(faqList[i].question);
       var answer = escapeHtml(faqList[i].answer).replace(/\n/g, '<br>');
 
-      html += '<div class="rounded-2xl border border-hairline bg-surface-card shadow-sm overflow-hidden">';
+      html += '<div class="faq-item">';
       html += '  <h3 class="m-0">';
-      html += '    <button type="button" id="faq-question-' + i + '" aria-expanded="false" aria-controls="faq-answer-' + i + '" class="faq-toggle w-full flex items-center justify-between gap-4 text-left px-5 py-4 font-bold font-mono text-squid-700">';
+      html += '    <button type="button" id="faq-question-' + i + '" aria-expanded="false" aria-controls="faq-answer-' + i + '" class="faq-toggle">';
       html += '      <span>' + question + '</span>';
-      html += '      <i class="fa-solid fa-chevron-down text-sm transition-transform duration-200 shrink-0" aria-hidden="true"></i>';
+      html += '      <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>';
       html += '    </button>';
       html += '  </h3>';
-      html += '  <div id="faq-answer-' + i + '" role="region" aria-labelledby="faq-question-' + i + '" class="hidden px-5 pb-4 text-sm text-ink-700 leading-relaxed opacity-90">' + answer + '</div>';
+      html += '  <div id="faq-answer-' + i + '" role="region" aria-labelledby="faq-question-' + i + '" class="faq-answer hidden">' + answer + '</div>';
       html += '</div>';
     }
 
@@ -288,15 +288,10 @@
       var valuesHtml = '';
       for (var i = 0; i < bundle.valuesCards.length; i++) {
         var v = bundle.valuesCards[i];
-        // Shared card anatomy (ResponseCard without the quote), same colourways as About's
-        // Linux Response cards. "01. Slow" splits into label "Value 01" + heading "Slow".
-        var vMatch = /^(\d+)\.\s*(.*)$/.exec(v.title);
-        var vLabel = vMatch ? 'Value ' + vMatch[1] : '';
-        var vHeading = vMatch ? vMatch[2] : v.title;
+        // Shared card anatomy (ResponseCard without label or quote); colourway tints the icon + heading.
         valuesHtml += '<article class="card c-' + escapeHtml(v.colorway) + '">';
         valuesHtml += '  <div class="card-icon"><i class="fa-solid ' + escapeHtml(v.icon) + '" aria-hidden="true"></i></div>';
-        if (vLabel) valuesHtml += '  <p class="card-label">' + escapeHtml(vLabel) + '</p>';
-        valuesHtml += '  <h3 class="card-heading">' + escapeHtml(vHeading) + '</h3>';
+        valuesHtml += '  <h3 class="card-heading card-heading-accent">' + escapeHtml(v.title) + '</h3>';
         valuesHtml += '  <p class="card-body">' + escapeHtml(v.desc) + '</p>';
         valuesHtml += '</article>';
       }
@@ -405,9 +400,9 @@
       var joinInfoHtml = '';
       for (var k = 0; k < bundle.joinInfo.length; k++) {
         var info = bundle.joinInfo[k];
-        joinInfoHtml += '<li class="flex items-start gap-3">';
-        joinInfoHtml += '  <span class="text-gold font-bold shrink-0">*</span>';
-        joinInfoHtml += '  <span><strong>' + escapeHtml(info.label) + ':</strong> ' + escapeHtml(info.desc) + '</span>';
+        joinInfoHtml += '<li class="info-item">';
+        joinInfoHtml += '  <span class="info-mark" aria-hidden="true">✦</span>';
+        joinInfoHtml += '  <p><strong>' + escapeHtml(info.label) + '.</strong> ' + escapeHtml(info.desc) + '</p>';
         joinInfoHtml += '</li>';
       }
       joinInfoContainer.innerHTML = joinInfoHtml;
@@ -676,14 +671,15 @@
     // on the line below. This keeps a long cause or effect from wrapping into the other
     // (or wrapping mid-phrase inside one long shared line) — each stays legible on its
     // own. Effect text supplies its own punctuation now, so no period is appended here.
-    var html = '<div class="quote-stack">';
+    var html = '<ul class="observe-panel" role="list">';
     for (var i = 0; i < items.length; i++) {
-      html += '<p class="quote-stack-line">';
-      html += escapeHtml(items[i].cause);
-      html += '<span class="arrow-out">→ ' + escapeHtml(items[i].effect) + '</span>';
-      html += '</p>';
+      html += '<li class="observe-row">';
+      html += '  <p class="observe-cause">' + escapeHtml(items[i].cause) + '</p>';
+      html += '  <span class="observe-arrow" aria-hidden="true">→</span>';
+      html += '  <p class="observe-effect"><span class="sr-only">leads to: </span>' + escapeHtml(items[i].effect) + '</p>';
+      html += '</li>';
     }
-    html += '</div>';
+    html += '</ul>';
     mount.innerHTML = html;
   }
 
@@ -693,12 +689,10 @@
     var html = '';
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
-      var mythNo = (i + 1 < 10 ? '0' : '') + (i + 1);
       html += '<article class="card c-' + escapeHtml(it.colorway) + '">';
       html += '  <div class="card-icon" aria-hidden="true">' + (ICONS[it.icon] || '') + '</div>';
-      html += '  <p class="card-label">Myth ' + mythNo + '</p>';
       html += '  <p class="card-quote">' + escapeHtml(it.claim) + '</p>';
-      html += '  <h3 class="card-heading">' + escapeHtml(it.response) + '</h3>';
+      html += '  <h3 class="card-heading card-heading-accent">' + escapeHtml(it.response) + '</h3>';
       html += '  <p class="card-body">' + escapeHtml(it.detail) + '</p>';
       html += '</article>';
     }
@@ -877,14 +871,9 @@
     html += '    <p class="text-sm leading-relaxed text-ink-700">' + escapeHtml(data.subStatement) + '</p>';
     html += '  </div>';
     html += '  <div class="team-split-chips">';
-    html += '    <div class="flex flex-wrap gap-2 mb-3">';
+    html += '    <div class="flex flex-wrap gap-2">';
     for (var i = 0; i < data.roleChips.length; i++) {
       html += '<span class="team-role-chip">' + escapeHtml(data.roleChips[i]) + '</span>';
-    }
-    html += '    </div>';
-    html += '    <div class="flex flex-wrap gap-2">';
-    for (var j = 0; j < data.rootChips.length; j++) {
-      html += '<span class="team-root-chip">' + escapeHtml(data.rootChips[j]) + '</span>';
     }
     html += '    </div>';
     html += '  </div>';

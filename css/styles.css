@@ -146,6 +146,7 @@ section, footer {
 }
 .card-label { margin: 0; font-family: var(--font-mono); font-size: var(--fs-caption); line-height: 1.4; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 .card-heading { margin: 0; font-size: var(--fs-subhead); line-height: 1.3; font-weight: 700; color: var(--text-body); }
+.card-heading-accent { color: var(--accent); } /* all accents >= 8.3:1 on white */
 .card-body { margin: 0; font-size: var(--fs-body); line-height: 1.55; flex: 1; }
 .card-quote { margin: 0; font-style: italic; font-size: var(--fs-body); color: var(--ink-600); }
 .card-icon { width: 28px; height: 28px; color: var(--accent); margin-bottom: var(--space-1); display: flex; align-items: center; font-size: 28px; line-height: 1; }
@@ -197,23 +198,33 @@ section, footer {
 .chip-pyramid .cp-step2 { font-size: 1.55rem; }
 .chip-pyramid .cp-step3 { font-size: 1.8rem; }
 
-/* --- Societal context quote stack (About) --- */
-/* Each cause/effect pair is its own line group, with the effect on its own indented
-   line beneath the cause — this keeps a long cause or effect from wrapping into (or
-   mid-phrase within) the other, unlike the previous single shared line. */
-.quote-stack { display: flex; flex-direction: column; gap: 1.1rem; }
-.quote-stack-line { font-size: var(--fs-body); line-height: 1.5; text-align: left; margin: 0; }
-.quote-stack-line .arrow-out {
-  /* squid-700: 6.99:1 on squid-100 background — passes WCAG AA (and is near-AAA),
-     unlike gold which only reaches 1.36:1 on this background. */
-  display: block;
-  margin-top: 0.3rem;
-  padding-left: 1.5rem;
-  color: var(--squid-700);
-  font-weight: 700;
-  font-family: var(--font-mono);
-  font-size: var(--fs-small);
+/* --- "What we keep seeing" observation panel (About) ---
+   One white card, one row per observation divided by hairlines.
+   Desktop: cause | arrow | effect. Mobile: effect drops under the cause. */
+.observe-panel { list-style: none; margin: 0; padding: 0 var(--space-6); background: var(--surface-card); border: 1px solid var(--hairline); border-radius: var(--radius-2xl); }
+.observe-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-4); align-items: baseline; padding: var(--space-6) 0; }
+.observe-row + .observe-row { border-top: 1px solid var(--hairline); }
+.observe-cause { margin: 0; font-size: 1.05rem; line-height: 1.45; font-weight: 600; color: var(--text-body); }
+.observe-arrow { color: var(--squid-700); font-weight: 700; font-size: var(--fs-subhead); }
+.observe-effect { margin: 0; font-size: var(--fs-body); line-height: 1.5; font-weight: 700; color: var(--squid-700); }
+@media (max-width: 640px) {
+  .observe-row { grid-template-columns: auto 1fr; row-gap: var(--space-1); padding: var(--space-4) 0; }
+  .observe-cause { grid-column: 1 / -1; }
 }
+
+/* --- Join info card (Home: "About the starter 4x introduction round") --- */
+.info-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.info-item { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: baseline; }
+.info-item p { margin: 0; font-size: var(--fs-body); line-height: 1.55; color: var(--text-body); }
+.info-item strong { font-weight: 700; }
+.info-mark { color: var(--squid-700); font-size: var(--fs-small); }
+
+/* --- FAQ accordion (Home): each item a white card with a hairline --- */
+.faq-item { background: var(--surface-card); border: 1px solid var(--hairline); border-radius: var(--radius-2xl); overflow: hidden; }
+.faq-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-6); text-align: left; font-size: 1.05rem; font-weight: 700; line-height: 1.4; color: var(--text-body); background: none; border: 0; cursor: pointer; }
+.faq-toggle:hover, .faq-toggle[aria-expanded="true"] { color: var(--squid-700); }
+.faq-chevron { color: var(--squid-700); font-size: var(--fs-small); flex: none; transition: transform 0.2s; }
+.faq-answer { margin: 0 var(--space-6); padding: var(--space-4) 0 var(--space-6); border-top: 1px solid var(--hairline); font-size: var(--fs-body); line-height: 1.55; color: var(--text-body); }
 
 /* --- Life-learning two-card layout (About) --- */
 .life-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
@@ -349,8 +360,7 @@ section, footer {
 .team-split-chips { text-align: center; min-width: 0; }
 .team-split-chips .flex { justify-content: center; min-width: 0; }
 @media (max-width: 768px) { .team-split { grid-template-columns: 1fr; gap: 1.5rem; } }
-.team-role-chip { background: var(--ink-900); color: var(--text-on-space); font-family: var(--font-mono); font-size: var(--fs-micro); padding: 0.45rem 0.85rem; border-radius: var(--radius-full); display: inline-block; }
-.team-root-chip { font-family: var(--font-mono); font-size: var(--fs-micro); background: var(--squid-100); color: var(--squid-700); padding: 0.35rem 0.75rem; border-radius: var(--radius-full); font-weight: 600; display: inline-block; }
+.team-role-chip { background: var(--squid-700); color: var(--ink-50); font-family: var(--font-mono); font-size: var(--fs-micro); padding: 0.45rem 0.85rem; border-radius: var(--radius-full); display: inline-block; }
 
 /* --- Partner: immediate needs row (cards use the shared .card anatomy) --- */
 .needs-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
