@@ -199,7 +199,7 @@ var SITE_BUNDLE = {
     },
     {
       title: 'Experience the generosity of open source',
-      body: 'The founding ethos of Linux — open source runs on <b>human values: generosity, credit, sharing. Practice them.</b>'
+      body: 'The founding ethos of Linux — open source runs on <b>human values</b>: generosity, credit, appreciation, and sharing. <b>Practice them and pass these on to others.</b>'
     }
   ],
 
