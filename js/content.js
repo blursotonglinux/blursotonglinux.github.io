@@ -8,15 +8,15 @@ var SITE_BUNDLE = {
     hero_title_gold: '& Rookies.',
     hero_quote: '"It is only with the heart that one can see rightly; \nwhat is essential is invisible to the eye."',
     hero_quote_author: '— Antoine de Saint-Exupéry',
-    hero_description: 'Linux powers most of the world\'s servers and everyday electronics, yet it goes largely unnoticed. \n\nBLUR is a free, volunteer-led weekly programme based in Singapore that introduces youths and adults from non-tech backgrounds to the world of Linux and its open-source playground.'
+    hero_description: 'Linux is the water we all swim in. It runs most of the world\'s servers and everyday electronics: invisible because it\'s everywhere, essential because nothing moves without it. \n\nBLUR is a free, volunteer-led weekly programme based in Singapore that introduces youths and adults from non-tech backgrounds to Linux and its open-source playground: to notice the water around them, recognise their ability to choose, and swim their own paths through the currents.'
   },
 
   // colorway = accent for the shared card anatomy (c-wheat / c-fox / c-rose): colour shows only on
   // the icon and heading; the card stays white.
   valuesCards: [
-    { title: '01. Slow', desc: 'In a world of AI paradoxes where knowledge becomes more democratised yet facile, we navigate to safer waters - our learning is slow. While the world chases trends, we look under the hood and look for keystones.', icon: 'fa-hourglass-half', color: 'wheat-900', colorway: 'wheat' },
-    { title: '02. Peer-Based', desc: 'Designed with the aim to empower learners to discover and open doors, teach others and contribute back to open-source. Here, members are supported by a community of peers and facilitators, encouraged to share their learning journeys and continue growing together.', icon: 'fa-people-carry-box', color: 'fox-900', colorway: 'fox' },
-    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many other niche interest areas. From the launchpoint of 4 starter sessions, members are then encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.', icon: 'fa-compass', color: 'rose-800', colorway: 'rose' }
+    { title: '01. Slow', desc: 'Not chionging from point A to point B for a copy-paste product, but constructing tools and context to practise and build understanding, so that everyone can explore their own sidequests. In a world of AI paradoxes, where knowledge is more democratised yet more facile, we look under the hood for the keystones.', icon: 'fa-hourglass-half', color: 'wheat-900', colorway: 'wheat' },
+    { title: '02. Peer-Based', desc: 'We\'re all learners in our own ways, organising volunteers included. Different backgrounds, expertise, and perspectives mean diverse, even contradictory, advice, and that\'s where we learn. You decide what makes sense for you, then teach others and give back to open-source.', icon: 'fa-people-carry-box', color: 'fox-900', colorway: 'fox' },
+    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many more niche areas. This isn\'t school or work, where someone assigns your projects. The beginning sessions are just to give you your starter pack of tools, so that you can pursue any sidequest you wander upon.', icon: 'fa-compass', color: 'rose-800', colorway: 'rose' }
   ],
 
   // Why Linux? split panel — homepage, right after hero (deck slide 7)
@@ -24,7 +24,7 @@ var SITE_BUNDLE = {
     claimTag: 'Like Windows or macOS',
     claim: 'Linux is an operating system.',
     realityTag: 'Unlike Windows and macOS',
-    reality: 'Linux is <b><u>free and open-source</u></b> (community-built), \n giving you total control over every operational detail of your device.'
+    reality: 'Linux is <b><u>free and open-source</u></b> (community-built): \n you choose what runs, how it looks, what it does, and you can change your mind.'
   },
 
   // 4x Launchpoint wheel — homepage (deck slides 15-18)
@@ -49,7 +49,7 @@ var SITE_BUNDLE = {
         nodeLabel: 'Sidequests',
         tag: 'Stage 2 of 4',
         title: 'Personal Sidequests',
-        body: 'Self-directed projects guided by what genuinely excites each learner, backed by mentors and peer collaboration.',
+        body: 'Self-directed projects. What matters is what you\'re trying to say, and the build is how you say it.',
         // Static photo strip — one photo per current sidequest project, so this stays a
         // representative sample as new projects are added. To swap a photo, overwrite the
         // file at that path (same filename), or edit the path string.
@@ -109,7 +109,7 @@ var SITE_BUNDLE = {
   faqs: [
     {
       question: 'Do I have to sign up beforehand for the tutorials?',
-      answer: 'We ask that you register your interest via the Intake Form ("Join the Next Intake"). Because we do have not enough laptops for everyone, enough time for all the questions that arise, and peer facilitators to help, we have to limit how many people join each round of tutorials.\n\nDon\'t worry though! We run these tutorials every quarter.'
+      answer: 'We ask that you register your interest via the Intake Form ("Join the Next Intake"). Because we do not have enough laptops for everyone, enough time for all the questions that arise, or enough peer facilitators to help, we have to limit how many people join each round of tutorials.\n\nDon\'t worry though! We run these tutorials every quarter.'
     },
     {
       question: 'How much does the 4-session tutorial cost?',
@@ -117,7 +117,7 @@ var SITE_BUNDLE = {
     },
     {
       question: 'Can I use my own laptop for the tutorials?',
-      answer: 'For the tutorials, we try to keep everyone on the same laptop specs to reduce unforeseen issues (missing tools, etc), which often stems from difference in hardware and/or software. \n\nAfter the tutorials, you\'re welcome to setup Linux on your own computer; some members have converted or dual-booted their own personal laptops (and even some of their family members\' too!)'
+      answer: 'For the tutorials, we try to keep everyone on the same laptop specs to reduce unforeseen issues (missing tools, etc), which often stems from difference in hardware and/or software. \n\nAfter the tutorials, you\'re welcome to set up Linux on your own computer; some members have converted or dual-booted their own personal laptops (and even some of their family members\' too!)'
     },
     {
       question: 'What if I miss one of the tutorials?',
@@ -125,14 +125,14 @@ var SITE_BUNDLE = {
     },
     {
       question: 'How do I keep learning after completing the tutorial sessions?',
-      answer: 'BLUR aims to empower learners to discover and open doors, teach others and contribute back to open-source. From the last tutorial session onwards, everyone is encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.\n\nEveryone is also invited teach what they have learned (just chope a "Sharing" slot!) \nPast Sharing sessions have covered networking, Docker, microcontrollers, and more!'
+      answer: 'BLUR aims to empower learners to discover and open doors, teach others and contribute back to open-source. From the last tutorial session onwards, everyone is encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.\n\nEveryone is also invited to teach what they have learned (just chope a "Sharing" slot!) \nPast Sharing sessions have covered networking, Docker, microcontrollers, and more!'
     },
     {
       question: 'If a Sharing session requires hardware beyond a laptop, will the hardware be provided?',
       answer: 'You will need to self-fund any hardware beyond the loaned laptops; however, based on interest, the community will try to source parts for purchasing.'
     },
     {
-      question: 'How do non-tutorial sessions look like?',
+      question: 'What do non-tutorial sessions look like?',
       answer: 'We start each week with 10 minutes reserved for everyone to share what they\'re exploring/working on, ask for ideas or pointers, and extend an invite for others to join their side quest! \n\nThen, if someone has choped the Sharing slot, they have 15 minutes to 1 hour to demo, present, or teach. After which, the rest of the session will be reserved for everyone to work and collaborate on side quests.'
     }
   ],
@@ -156,9 +156,9 @@ var SITE_BUNDLE = {
   // Today's Societal Context — quote-stack (deck slide 6)
   societalContext: [
     { cause: 'Proprietary lock-ins and platform dependency', effect: 'Resignation. Learned helplessness.' },
-    { cause: 'Certification/\'professionalisation\' of everday skills', effect: 'Learning only happens in IHL. Shallow skill-sets.' },
+    { cause: 'Certification/\'professionalisation\' of everyday skills', effect: 'Learning only happens in IHL. Shallow skill-sets.' },
     { cause: 'Fast-changing relevancy landscape', effect: 'Fun learning falls by the wayside. Social anxiety.' },
-    { cause: "'Magical' AI mysteriously 'thinks' for you", effect: 'Outsourced critical thinking.' }
+    { cause: "'Magical' AI mysteriously 'thinks' for you", effect: 'Outsourced critical thinking. Disengaged from decisions of what is worth doing and why.' }
   ],
 
   // Linux Breaks Those Narratives — cards with wheat/fox/rose accents on icon + heading (deck slide 11)
@@ -169,7 +169,7 @@ var SITE_BUNDLE = {
       icon: 'layer-group',
       claim: '"You need the newest, modern tech."',
       response: 'Modern tech built atop decades-old tech',
-      detail: 'The foundation and sandbox that enables AI (and that AI uses day-to-day) is Linux.'
+      detail: 'The foundation and sandbox that enables AI (and that AI uses day-to-day) is Linux. Explore the past and present that underpin the future, then spin off on your own trajectory.'
     },
     {
       colorway: 'fox',
@@ -190,7 +190,7 @@ var SITE_BUNDLE = {
   // Life-learning experience — two side-by-side cards (deck slide 12)
   lifeLearning: [
     {
-      title: 'Experience how things could be (and was)',
+      title: 'Explore how things were, how they are, and what they make possible',
       bullets: [
         '<b>Recalibrate</b> to something real',
         'Open eyes to <b>opportunities, potential, and pathways beyond limits</b>',
@@ -199,14 +199,14 @@ var SITE_BUNDLE = {
     },
     {
       title: 'Experience the generosity of open source',
-      body: 'The founding ethos of Linux — and in turn, <b>learn and practice how to pass this generosity on to others</b>'
+      body: 'The founding ethos of Linux — open source runs on <b>human values: generosity, credit, sharing. Practice them.</b>'
     }
   ],
 
   // From e-waste to project engines — 4-step flow (deck slide 14)
   ewasteFlow: [
     { step: 'Unwanted', photo: 'img/ewaste/01-unwanted.jpg', desc: 'Slow, underperforming. Fish in wrong water?' },
-    { step: 'Hack', photo: 'img/ewaste/02-hack.jpg', desc: "The team 'hacks' and wipes each device." },
+    { step: 'Hack', photo: 'img/ewaste/02-hack.jpg', desc: "The team 'hacks', opening up each device to greater potential." },
     { step: 'Brainsss', photo: 'img/ewaste/03-brains.jpg', desc: 'Lightweight Linux distros take over.' },
     { step: 'Second Life', photo: 'img/ewaste/04-secondlife.jpg', desc: 'They rise again as sublime tools of digital literacy and project elves.' }
   ],
@@ -235,7 +235,7 @@ var SITE_BUNDLE = {
   // Team Behind BLUR — flipped lead + badge chips (deck slide 4), lives on Partner page
   partnerTeam: {
     leadStatement: 'Our diverse backgrounds make us exceptionally resourceful — able to turn limited resources into projects and, ultimately, statements and movements.',
-    subStatement: 'No need for fancy tools or wealthy funders: we hack old, discarded hardware, sometimes out of necessity, and… fun!',
+    subStatement: 'No need for fancy tools or wealthy funders: we hack old, discarded hardware to open doors to more possibilities, sometimes out of necessity, and… fun!',
     roleChips: ['ex-Makerspace','Prototyping Engineers', 'UX Researchers', 'Systems Engineers', 'Educators', 'Managers']
   },
 
