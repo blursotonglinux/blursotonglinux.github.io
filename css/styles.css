@@ -167,7 +167,7 @@ section, footer {
    One white surface; the ringed planet on a dashed squid-300 rule does the dividing. */
 .claim-panel {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 2fr);
   background: var(--surface-card);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-2xl);
