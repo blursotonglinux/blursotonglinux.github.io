@@ -57,7 +57,8 @@ var SITE_BUNDLE = {
           'img/sidequests/ascii-photobooth-1.jpg',
           'img/sidequests/cyberdeck-1.jpg',
           'img/sidequests/fish-1.jpeg',
-          'img/sidequests/tea-1.jpeg'
+          'img/sidequests/tea-1.jpeg',
+          'img/sidequests/bash-poetry-1.jpg'
         ]
       },
       {
@@ -88,7 +89,7 @@ var SITE_BUNDLE = {
 
   // Open-Source Playground cards — homepage, below the wheel (deck slide 18)
   playgroundCards: [
-    { title: 'Creative Coding', photo: 'img/playground/creative-coding.jpg' },
+    { title: 'Creative Coding', photo: 'img/playground/bash-poetry-1.jpg' }, // was creative-coding.jpg (file kept)
     { title: 'Hardware Hacking', photo: 'img/playground/hardware-hacking.jpg' },
     { title: 'Citizen Science', photo: 'img/playground/citizen-science.jpg' }
   ],
@@ -213,10 +214,12 @@ var SITE_BUNDLE = {
 
   // Project Gallery — fanned photo stacks (deck slide 19 + your own showcase projects)
   // To add a project: copy one block, give it photos (2-3 recommended for the fan effect).
+  // Optional `url`: adds a "Visit site" link (opens in a new tab) under the card and in the lightbox.
   projectGallery: [
     { title: 'Fashionable/Functional Cyberdeck', photos: ['img/gallery/cyberdeck-1.jpg', 'img/gallery/cyberdeck-2.jpg', 'img/gallery/cyberdeck-3.jpg', 'img/gallery/cyberdeck-4.jpg', 'img/gallery/cyberdeck-5.jpg', 'img/gallery/cyberdeck-6.jpeg'] },
     { title: 'RPi Cam Control', photos: ['img/gallery/fish-1.jpeg', 'img/gallery/fish-2.jpeg'] },
-    { title: 'Voice-Controlled Coffee Machine', photos: ['img/gallery/tea-1.jpeg', 'img/gallery/tea-2.jpeg', 'img/gallery/tea-3.jpeg'] }
+    { title: 'Voice-Controlled Coffee Machine', photos: ['img/gallery/tea-1.jpeg', 'img/gallery/tea-2.jpeg', 'img/gallery/tea-3.jpeg'] },
+    { title: 'Bash Poetry', url: 'https://poems.blursotonglinux.com', photos: ['img/gallery/bash-poetry-1.jpg', 'img/gallery/bash-poetry-2.jpg', 'img/gallery/bash-poetry-3.jpg'] }
   ],
 
   // Testimonials carousel — About page, own section

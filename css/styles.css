@@ -272,6 +272,13 @@ section, footer {
   border: 2px solid rgba(251, 191, 36, 0.3);
 }
 @media (max-width: 480px) { .wheel-static-photos img { width: calc(50% - 0.3rem); } }
+/* 5+ photos: fit 5 per row (3 per row on phones) instead of leaving one orphaned */
+.wheel-static-photos img:first-child:nth-last-child(n+5),
+.wheel-static-photos img:first-child:nth-last-child(n+5) ~ img { width: calc(20% - 0.5rem); min-width: 56px; box-sizing: border-box; }
+@media (max-width: 480px) {
+  .wheel-static-photos img:first-child:nth-last-child(n+5),
+  .wheel-static-photos img:first-child:nth-last-child(n+5) ~ img { width: calc(33.333% - 0.45rem); }
+}
 .wheel-sq-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; font-family: var(--font-mono); font-size: var(--fs-micro); font-weight: 700; color: var(--gold); text-decoration: none; }
 .wheel-sq-link:hover { text-decoration: underline; }
 .wheel-progress-dots { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.9rem; position: relative; z-index: 2; }
@@ -416,6 +423,18 @@ body.lightbox-locked { overflow: hidden; }
 .gallery-fan-project:focus-visible, .gallery-fan-stack[role="button"]:focus-visible { outline: 3px solid var(--squid-700); outline-offset: 3px; border-radius: var(--radius-sm); }
 .gallery-fan-count { display: inline-flex; align-items: center; gap: 0.3rem; }
 .gallery-fan-count .fa-expand { font-size: var(--fs-micro); }
+/* Inner photo trigger (wrapper .gallery-fan-project keeps the hover fan effect) */
+.gallery-fan-trigger { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; }
+.gallery-fan-trigger:focus-visible { outline: 3px solid var(--squid-700); outline-offset: 3px; border-radius: var(--radius-sm); }
+/* External "Visit site" link — icon signals it opens a new tab */
+.gallery-fan-link { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: var(--fs-micro); font-weight: 700; color: var(--squid-700); text-decoration: underline; text-underline-offset: 3px; min-height: 24px; }
+.gallery-fan-link:hover { text-decoration-thickness: 2px; }
+.gallery-fan-link:focus-visible { outline: 3px solid var(--squid-700); outline-offset: 3px; border-radius: var(--radius-sm); }
+.gallery-fan-link .fa-arrow-up-right-from-square { font-size: 0.85em; }
+.lightbox-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-on-space); font-family: var(--font-mono); font-size: var(--fs-caption); text-decoration: underline; text-underline-offset: 3px; }
+.lightbox-link[hidden] { display: none; }
+.lightbox-link:hover { text-decoration-thickness: 2px; }
+.lightbox-link:focus-visible { outline: 3px solid var(--text-on-space); outline-offset: 3px; border-radius: var(--radius-sm); }
 
 /* --- Partner: BLUR at a Glance (tiles use the shared .card anatomy) --- */
 .glance-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }

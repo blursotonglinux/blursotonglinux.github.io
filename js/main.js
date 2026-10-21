@@ -763,7 +763,10 @@
     var html = '<div class="gallery-fan-row">';
     for (var i = 0; i < projects.length; i++) {
       var proj = projects[i];
-      html += '<div class="gallery-fan-project" data-project-idx="' + i + '" role="button" tabindex="0" aria-label="View ' + escapeHtml(proj.title) + ' photos">';
+      // Wrapper holds the photo trigger and (optionally) an external link as siblings,
+      // so the link is never nested inside the role="button" element.
+      html += '<div class="gallery-fan-project">';
+      html += '<div class="gallery-fan-trigger" data-project-idx="' + i + '" role="button" tabindex="0" aria-label="View ' + escapeHtml(proj.title) + ' photos">';
       html += '  <div class="gallery-fan-stack">';
       for (var p = 0; p < proj.photos.length && p < 3; p++) {
         html += '<img class="gf-s' + (p + 1) + '" src="' + escapeHtml(proj.photos[p]) + '" alt="' + escapeHtml(proj.title) + ' photo ' + (p + 1) + '" loading="lazy">';
@@ -772,14 +775,18 @@
       html += '  <div class="gallery-fan-label">' + escapeHtml(proj.title) + '</div>';
       html += '  <div class="gallery-fan-count"><i class="fa-solid fa-expand"></i> ' + proj.photos.length + (proj.photos.length === 1 ? ' photo' : ' photos') + '</div>';
       html += '</div>';
+      if (proj.url) {
+        html += '<a class="gallery-fan-link" href="' + escapeHtml(proj.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Visit ' + escapeHtml(proj.title) + ' website (opens in a new tab)">Visit site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>';
+      }
+      html += '</div>';
     }
     html += '</div>';
     mount.innerHTML = html;
 
     var openProject = function (idx) {
-      openLightbox(projects[idx].photos, 0, projects[idx].title);
+      openLightbox(projects[idx].photos, 0, projects[idx].title, projects[idx].url);
     };
-    var cards = mount.querySelectorAll('.gallery-fan-project');
+    var cards = mount.querySelectorAll('.gallery-fan-trigger');
     for (var c = 0; c < cards.length; c++) {
       cards[c].addEventListener('click', function (evt) {
         openProject(parseInt(evt.currentTarget.getAttribute('data-project-idx'), 10));
@@ -937,6 +944,7 @@
   var lightboxPhotos = [];
   var lightboxIdx = 0;
   var lightboxCaption = '';
+  var lightboxUrl = '';
 
   function buildLightbox() {
     if (lightboxEl) return lightboxEl;
@@ -952,6 +960,7 @@
       '<figure class="lightbox-figure">' +
       '  <img class="lightbox-img" src="" alt="">' +
       '  <figcaption class="lightbox-caption"></figcaption>' +
+      '  <a class="lightbox-link" href="#" target="_blank" rel="noopener noreferrer" hidden></a>' +
       '</figure>' +
       '<div class="lightbox-counter"></div>';
     document.body.appendChild(el);
@@ -979,6 +988,15 @@
     img.src = lightboxPhotos[lightboxIdx];
     img.alt = lightboxCaption ? (lightboxCaption + ' photo ' + (lightboxIdx + 1)) : ('Photo ' + (lightboxIdx + 1));
     cap.textContent = lightboxCaption || '';
+    var link = lightboxEl.querySelector('.lightbox-link');
+    if (lightboxUrl) {
+      link.href = lightboxUrl;
+      link.innerHTML = 'Visit ' + escapeHtml(lightboxCaption || 'site') + ' <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>';
+      link.setAttribute('aria-label', 'Visit ' + (lightboxCaption || 'site') + ' website (opens in a new tab)');
+      link.hidden = false;
+    } else {
+      link.hidden = true;
+    }
     counter.textContent = (lightboxIdx + 1) + ' / ' + lightboxPhotos.length;
     var multi = lightboxPhotos.length > 1;
     lightboxEl.querySelector('.lb-prev').style.display = multi ? '' : 'none';
@@ -991,12 +1009,13 @@
     renderLightboxFrame();
   }
 
-  function openLightbox(photos, startIndex, captionText) {
+  function openLightbox(photos, startIndex, captionText, linkUrl) {
     if (!photos || !photos.length) return;
     buildLightbox();
     lightboxPhotos = photos;
     lightboxIdx = startIndex || 0;
     lightboxCaption = captionText || '';
+    lightboxUrl = linkUrl || '';
     renderLightboxFrame();
     lightboxEl.classList.add('open');
     document.body.classList.add('lightbox-locked');
