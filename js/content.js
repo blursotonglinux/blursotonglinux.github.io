@@ -14,9 +14,9 @@ var SITE_BUNDLE = {
   // colorway = accent for the shared card anatomy (c-wheat / c-fox / c-rose): colour shows only on
   // the icon and heading; the card stays white.
   valuesCards: [
-    { title: '01. Slow', desc: 'Not chionging from point A to point B for a copy-paste product, but constructing tools and context to practise and build understanding, so that everyone can explore their own sidequests. In a world of AI paradoxes, where knowledge is more democratised yet more facile, we look under the hood for the keystones.', icon: 'fa-hourglass-half', color: 'wheat-900', colorway: 'wheat' },
+    { title: '01. Slow', desc: 'Not chionging from point A to point B for a copy-paste product, but constructing tools and context to practise and build understanding, so that everyone can explore their own side quests. In a world of AI paradoxes, where knowledge is more democratised yet more facile, we look under the hood for the keystones.', icon: 'fa-hourglass-half', color: 'wheat-900', colorway: 'wheat' },
     { title: '02. Peer-Based', desc: 'We\'re all learners in our own ways, organising volunteers included. Different backgrounds, expertise, and perspectives mean diverse, even contradictory, advice, and that\'s where we learn. You decide what makes sense for you, then teach others and give back to open-source.', icon: 'fa-people-carry-box', color: 'fox-900', colorway: 'fox' },
-    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many more niche areas. This isn\'t school or work, where someone assigns your projects. The beginning sessions are just to give you your starter pack of tools, so that you can pursue any sidequest you wander upon.', icon: 'fa-compass', color: 'rose-800', colorway: 'rose' }
+    { title: '03. Passion-Led', desc: 'Linux is home to citizen science, art, hardware-hacking, digital rights activism, PCB design, creative coding, and many more niche areas. This isn\'t school or work, where someone assigns your projects. The beginning sessions are just to give you your starter pack of tools, so that you can pursue any side quest you wander upon.', icon: 'fa-compass', color: 'rose-800', colorway: 'rose' }
   ],
 
   // Why Linux? split panel — homepage, right after hero (deck slide 7)
@@ -46,9 +46,9 @@ var SITE_BUNDLE = {
       },
       {
         key: 'sidequests',
-        nodeLabel: 'Sidequests',
+        nodeLabel: 'Side Quests',
         tag: 'Stage 2 of 4',
-        title: 'Personal Sidequests',
+        title: 'Personal Side Quests',
         body: 'Self-directed projects. What matters is what you\'re trying to say, and the build is how you say it.',
         // Static photo strip — one photo per current sidequest project, so this stays a
         // representative sample as new projects are added. To swap a photo, overwrite the
@@ -74,7 +74,7 @@ var SITE_BUNDLE = {
         nodeLabel: 'Giving Back',
         tag: 'Stage 4 of 4',
         title: 'Giving Back',
-        body: 'Members document their sidequest journeys and contribute back to open-source projects globally. We meet monthly to share and learn from each other, documenting progress so others can spin off their own sidequests.',
+        body: 'Members document their side quest journeys and contribute back to open-source projects globally. We meet monthly to share and learn from each other, documenting progress so others can spin off their own side quests.',
         // Static photo strip — real photos from Sharing/community sessions (img/programme/).
         // To swap a photo, overwrite the file at that path (same filename), or edit the path
         // string; to add one, add a new file under img/programme/ and add a line here.
@@ -126,7 +126,7 @@ var SITE_BUNDLE = {
     },
     {
       question: 'How do I keep learning after completing the tutorial sessions?',
-      answer: 'BLUR aims to empower learners to discover and open doors, teach others and contribute back to open-source. From the last tutorial session onwards, everyone is encouraged to pursue their own "sidequests" - self-directed projects guided by what genuinely interests them.\n\nEveryone is also invited to teach what they have learned (just chope a "Sharing" slot!) \nPast Sharing sessions have covered networking, Docker, microcontrollers, and more!'
+      answer: 'BLUR aims to empower learners to discover and open doors, teach others and contribute back to open-source. From the last tutorial session onwards, everyone is encouraged to pursue their own "side quests" - self-directed projects guided by what genuinely interests them.\n\nEveryone is also invited to teach what they have learned (just chope a "Sharing" slot!) \nPast Sharing sessions have covered networking, Docker, microcontrollers, and more!'
     },
     {
       question: 'If a Sharing session requires hardware beyond a laptop, will the hardware be provided?',

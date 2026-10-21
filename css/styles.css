@@ -439,3 +439,27 @@ body.lightbox-locked { overflow: hidden; }
 /* --- Partner: BLUR at a Glance (tiles use the shared .card anatomy) --- */
 .glance-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 @media (max-width: 640px) { .glance-row { grid-template-columns: 1fr; } }
+
+/* --- Home: Side Quests embed (Teable share via view.blursidequest.com) ---
+   Teable picks its gallery column count from the frame width, so on desktop the
+   iframe renders wider than its box and is scaled down to fit (more cards per row).
+   Tune per breakpoint: --sq-scale (1 = no scaling), --sq-height (visible height),
+   --sq-bleed (how far the frame extends into the card's padding on each side). */
+.sq-frame {
+  --sq-scale: 1;
+  --sq-height: 520px;
+  --sq-bleed: 0px;
+  height: var(--sq-height);
+  margin-inline: calc(-1 * var(--sq-bleed));
+}
+.sq-frame iframe {
+  display: block;
+  border: 0;
+  width: calc(100% / var(--sq-scale));
+  height: calc(var(--sq-height) / var(--sq-scale));
+  transform: scale(var(--sq-scale));
+  transform-origin: 0 0;
+}
+@media (min-width: 1024px) {
+  .sq-frame { --sq-scale: 1; --sq-height: 600px; --sq-bleed: var(--space-4); }
+}
